@@ -58,15 +58,30 @@ nav ul li a:hover {
 
 /* Sección Principal */
 .main-section {
-    text-align: center;
-    padding: 40px 20px;
+    display: flex;
+    flex-direction: column; /* Cambié la dirección de los elementos a columna */
+    align-items: left; /* Centra los elementos horizontalmente */
+    justify-content: flex-start; /* Alinea los elementos hacia arriba */
     background-color: #fff;
+    padding: 100px;
 }
 
 .main-section img {
     width: 100%;
-    max-width: 600px;
-    margin-top: 20px;
+    max-width: 300px; /* Ajusta el tamaño de la imagen */
+    margin-bottom: 50px; /* Espacio entre la imagen y el texto */
+}
+
+.main-section-text {
+    text-align: left; /* Centra el texto */
+}
+
+.main-section-text h2 {
+    margin-bottom: 10px;
+}
+
+.main-section-text p {
+    color: #666;
 }
 
 /* Sección de Servicios */
