@@ -19,10 +19,20 @@ header {
     color: #fff;
     padding: 20px;
     text-align: center;
+    position: relative; /* Necesario para posicionar elementos absolutamente dentro del encabezado */
 }
 
 header .logo h1 {
     margin: 0;
+    margin-bottom: 20px; /* Aumenta el espacio entre el título y los elementos de navegación */
+}
+
+/* Alineación de los elementos de navegación a la derecha y más abajo */
+nav {
+    position: absolute;
+    top: 70%; /* Cambié de 50% a 70% para moverlo más abajo */
+    right: 20px; /* Los mantiene a la derecha */
+    transform: translateY(-50%); /* Ajusta para centrar verticalmente en su nueva posición */
 }
 
 nav ul {
@@ -32,13 +42,18 @@ nav ul {
 
 nav ul li {
     display: inline;
-    margin-right: 20px;
+    margin-left: 15px; /* Reduce el espacio entre los elementos */
 }
 
 nav ul li a {
     color: #fff;
     text-decoration: none;
     font-weight: bold;
+    font-size: 14px; /* Reduce el tamaño de los enlaces */
+}
+
+nav ul li a:hover {
+    color: #0066cc;
 }
 
 /* Sección Principal */
