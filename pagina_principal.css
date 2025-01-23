@@ -1,40 +1,178 @@
-/* Reset de márgenes y relleno */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-/* Estilo global */
-body {
-    font-family: Arial, sans-serif;
-    line-height: 1.6;
-    background-color: #f4f4f4;
-    color: #333;
+:root {
+    --dark-bg: #121212;
+    --dark-secondary: #1e1e1e;
+    --accent-color: #0066cc;
+    --text-primary: #e0e0e0;
+    --text-secondary: #a0a0a0;
 }
 
-/* Encabezado */
+body {
+    background-color: var(--dark-bg);
+    color: var(--text-primary);
+    font-family: 'Inter', 'Arial', sans-serif;
+    line-height: 1.6;
+    perspective: 1000px;
+}
+
 header {
-    background-color: #333;
-    color: #fff;
+    background-color: var(--dark-secondary);
     padding: 20px;
     text-align: center;
-    position: relative; /* Necesario para posicionar elementos absolutamente dentro del encabezado */
+    position: relative;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+    transition: all 0.3s ease;
 }
 
-header .logo h1 {
-    margin: 0;
-    margin-bottom: 20px; /* Aumenta el espacio entre el título y los elementos de navegación */
+.main-section {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: var(--dark-secondary);
+    padding: 80px 120px;
+    border-radius: 15px;
+    box-shadow: 0 15px 30px rgba(0,0,0,0.4);
+    margin: 40px;
+    transition: transform 0.4s ease;
 }
 
-/* Alineación de los elementos de navegación a la derecha y más abajo */
-nav {
+.main-section:hover {
+    transform: rotateX(5deg) scale(1.02);
+}
+
+.main-section img {
+    width: 300px;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 50%;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+    transition: transform 0.3s ease;
+}
+
+.main-section img:hover {
+    transform: scale(1.1) rotate(5deg);
+}
+
+.bio {
+    background-color: rgba(50,50,50,0.5);
+    backdrop-filter: blur(10px);
+    border-radius: 15px;
+    padding: 30px;
+    margin-top: 30px;
+    border: 1px solid rgba(255,255,255,0.1);
+    transition: all 0.3s ease;
+}
+
+.bio:hover {
+    background-color: rgba(70,70,70,0.6);
+}
+
+.technologies {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    margin-top: 30px;
+    flex-wrap: wrap;
+}
+
+.technologies i {
+    font-size: 40px;
+    color: var(--text-secondary);
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.technologies i:hover {
+    color: var(--accent-color);
+    transform: scale(1.3) rotate(360deg);
+}
+
+.projects {
+    background-color: var(--dark-bg);
+    padding: 60px 120px;
+}
+
+.project-cards {
+    display: flex;
+    justify-content: space-between;
+    gap: 30px;
+}
+
+.project-card {
+    background-color: var(--dark-secondary);
+    border-radius: 15px;
+    padding: 30px;
+    flex: 1;
+    transition: all 0.4s ease;
+    border: 1px solid rgba(255,255,255,0.05);
+    position: relative;
+    overflow: hidden;
+}
+
+.project-card::before {
+    content: '';
     position: absolute;
-    top: 70%; /* Cambié de 50% a 70% para moverlo más abajo */
-    right: 20px; /* Los mantiene a la derecha */
-    transform: translateY(-50%); /* Ajusta para centrar verticalmente en su nueva posición */
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(
+        45deg, 
+        transparent, 
+        var(--accent-color), 
+        transparent
+    );
+    transform: rotate(-45deg);
+    opacity: 0;
+    transition: opacity 0.4s ease;
 }
 
+.project-card:hover::before {
+    opacity: 0.1;
+}
+
+.project-card:hover {
+    transform: translateY(-10px) rotateX(5deg);
+    box-shadow: 0 15px 30px rgba(0,102,204,0.2);
+}
+
+.services {
+    background-color: var(--dark-secondary);
+    padding: 60px 120px;
+    text-align: center;
+}
+
+.contact {
+    background-color: var(--dark-bg);
+    padding: 60px 120px;
+    text-align: center;
+}
+
+footer {
+    background-color: var(--dark-secondary);
+    padding: 20px;
+    text-align: center;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .main-section, .projects, .services, .contact {
+        padding: 40px;
+        flex-direction: column;
+    }
+
+    .project-cards {
+        flex-direction: column;
+    }
+}
+
+/* Navigation Styling */
 nav ul {
     list-style-type: none;
     padding: 0;
@@ -42,84 +180,33 @@ nav ul {
 
 nav ul li {
     display: inline;
-    margin-left: 15px; /* Reduce el espacio entre los elementos */
+    margin-left: 15px;
 }
 
 nav ul li a {
-    color: #fff;
+    color: var(--text-primary);
     text-decoration: none;
     font-weight: bold;
-    font-size: 14px; /* Reduce el tamaño de los enlaces */
+    font-size: 14px;
+    position: relative;
+    transition: color 0.3s ease;
+}
+
+nav ul li a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -5px;
+    left: 0;
+    background-color: var(--accent-color);
+    transition: width 0.3s ease;
+}
+
+nav ul li a:hover::after {
+    width: 100%;
 }
 
 nav ul li a:hover {
-    color: #0066cc;
-}
-
-/* Sección Principal */
-.main-section {
-    display: flex;
-    flex-direction: column; /* Cambié la dirección de los elementos a columna */
-    align-items: left; /* Centra los elementos horizontalmente */
-    justify-content: flex-start; /* Alinea los elementos hacia arriba */
-    background-color: #fff;
-    padding: 100px;
-}
-
-.main-section img {
-    width: 100%;
-    max-width: 300px; /* Ajusta el tamaño de la imagen */
-    margin-bottom: 50px; /* Espacio entre la imagen y el texto */
-}
-
-.main-section-text {
-    text-align: left; /* Centra el texto */
-}
-
-.main-section-text h2 {
-    margin-bottom: 10px;
-}
-
-.main-section-text p {
-    color: #666;
-}
-
-/* Sección de Servicios */
-.services {
-    background-color: #e2e2e2;
-    padding: 40px 20px;
-    text-align: center;
-}
-
-.services h2 {
-    margin-bottom: 20px;
-}
-
-.service-item {
-    margin-bottom: 20px;
-}
-
-/* Sección de Contacto */
-.contact {
-    padding: 40px 20px;
-    text-align: center;
-}
-
-.contact a {
-    color: #333;
-    text-decoration: none;
-    font-weight: bold;
-}
-
-.contact a:hover {
-    color: #0066cc;
-}
-
-/* Pie de página */
-footer {
-    background-color: #333;
-    color: #fff;
-    text-align: center;
-    padding: 20px;
-    margin-top: 20px;
+    color: var(--accent-color);
 }
