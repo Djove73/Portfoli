@@ -150,4 +150,68 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Execute lazy sidebar loading after a short delay
     setTimeout(lazyLoadSidebar, 500);
+
+    // Reader Dropdown Functionality
+    const readerItems = document.querySelectorAll('.reader-item');
+    const readerModal = document.getElementById('reader-modal');
+    const readerContent = document.getElementById('reader-content');
+    const closeModal = document.querySelector('.close-modal');
+
+    readerItems.forEach(item => {
+        item.addEventListener('click', function(e) {
+            e.preventDefault();
+            const source = this.getAttribute('data-source');
+            
+            fetch(source)
+                .then(response => response.text())
+                .then(data => {
+                    readerContent.textContent = data;
+                    readerModal.style.display = 'block';
+                })
+                .catch(error => {
+                    console.error('Error loading file:', error);
+                });
+        });
+    });
+
+    // Close modal when clicking on close button or outside the modal
+    closeModal.addEventListener('click', () => {
+        readerModal.style.display = 'none';
+    });
+
+    window.addEventListener('click', (e) => {
+        if (e.target === readerModal) {
+            readerModal.style.display = 'none';
+        }
+    });
+});
+
+// Obtener todos los elementos del menú con drop-down
+const menuItems = document.querySelectorAll('.menu-item');
+
+// Añadir eventos a cada elemento del menú
+menuItems.forEach((item) => {
+    const link = item.querySelector('a');
+    const dropdown = item.querySelector('.dropdown');
+
+    link.addEventListener('click', (e) => {
+        e.preventDefault(); // Evita el salto al enlace
+
+        // Cerrar otros menús abiertos
+        menuItems.forEach((otherItem) => {
+            if (otherItem !== item) {
+                otherItem.classList.remove('open');
+            }
+        });
+
+        // Alternar visibilidad del drop-down actual
+        item.classList.toggle('open');
+    });
+
+    // Cerrar el menú al hacer clic fuera
+    document.addEventListener('click', (e) => {
+        if (!item.contains(e.target)) {
+            item.classList.remove('open');
+        }
+    });
 });
