@@ -189,3 +189,19 @@ document.addEventListener('DOMContentLoaded', function() {
 
     setTimeout(lazyLoadSidebar, 500);
 });
+
+document.getElementById('contactForm').addEventListener('submit', function(event) {
+    event.preventDefault(); // Evita el envío del formulario para demostrar la animación
+    const button = event.target.querySelector('button');
+    button.textContent = "Enviando...";
+    button.disabled = true;
+
+    // Animación visual
+    button.style.backgroundColor = "#34a853"; // Color verde
+    setTimeout(() => {
+        button.textContent = "Mensaje Enviado";
+        button.style.backgroundColor = "#0066cc"; // Restaurar color original
+        button.disabled = false;
+    }, 2000);
+});
+
