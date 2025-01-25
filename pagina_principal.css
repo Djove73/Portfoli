@@ -212,6 +212,31 @@
             0 0 40px rgba(0, 102, 204, 0.3);  
     }
 
+    .project-link {
+        display: inline-block;
+        text-decoration: none;
+        padding: 10px 20px;
+        background-color: #007BFF;
+        color: #ffffff;
+        font-size: 16px;
+        font-weight: bold;
+        border-radius: 8px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        transition: all 0.3s ease;
+      }
+      
+      .project-link:hover {
+        background-color: #0056b3;
+        box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+        transform: translateY(-3px);
+      }
+      
+      .project-link:active {
+        background-color: #004085;
+        transform: translateY(0);
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      }         
+
     /* Sección de testimonios */
     .testimonials {
         background-color: var(--dark-secondary);
