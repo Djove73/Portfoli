@@ -15,16 +15,10 @@
         </div>
         <nav class="main-menu">
             <ul>
-                <li class="menu-item reader-dropdown">
-                    <a href="#" class="reader-toggle">
-                        <i class="fas fa-book-reader"></i> Reader
-                    </a>
-                    <ul class="dropdown reader-menu">
-                        <li><a href="#" class="reader-item" data-source="pagina_principal.html">HTML</a></li>
-                        <li><a href="#" class="reader-item" data-source="pagina_principal.css">CSS</a></li>
-                        <li><a href="#" class="reader-item" data-source="pagina_principal.js">JavaScript</a></li>
-                    </ul>
-                </li>
+                <li><a href="#proyectos">Proyectos</a></li>
+                <li><a href="#servicios">Servicios</a></li>
+                <li><a href="#testimonios">Testimonios</a></li>
+                <li><a href="#contacto">Contacto</a></li>
             </ul>
         </nav>
     </header>
@@ -34,7 +28,6 @@
         <div class="main-section-text">
             <h2>Bienvenido a Mi Portafolio</h2>
             <p>Desarrollador web creativo y apasionado.</p>
-            
             <div class="bio">
                 <h3>Sobre Mí</h3>
                 <p>Desarrollador web con experiencia en múltiples tecnologías. Me especializo en crear soluciones digitales innovadoras y eficientes, combinando frontend y backend con pasión por el diseño y la funcionalidad.</p>
@@ -47,14 +40,13 @@
             <i class="fab fa-java"></i>
             <i class="fab fa-swift"></i>
             <i class="fab fa-python"></i>
-            <i class="fab fa-windows"></i>
-            <i class="fas fa-database"></i>
             <i class="fab fa-linux"></i>
+            <i class="fas fa-database"></i>
             <i class="fas fa-cubes"></i>
         </div>
     </section>
 
-    <section class="projects">
+    <section id="proyectos" class="projects">
         <h2>Mis Proyectos</h2>
         <div class="project-cards">
             <div class="project-card">
@@ -75,7 +67,25 @@
         </div>
     </section>
 
-    <section class="services">
+    <section id="testimonios" class="testimonials">
+        <h2>Testimonios</h2>
+        <div class="testimonials-carousel">
+            <div class="testimonial">
+                <p>“El trabajo de este desarrollador superó todas mis expectativas. ¡Altamente recomendado!”</p>
+                <h4>- Cliente 1</h4>
+            </div>
+            <div class="testimonial">
+                <p>“Una experiencia increíble, resultados profesionales y una atención al detalle impecable.”</p>
+                <h4>- Cliente 2</h4>
+            </div>
+            <div class="testimonial">
+                <p>“Excelente comunicación y un producto final que marcó la diferencia para mi negocio.”</p>
+                <h4>- Cliente 3</h4>
+            </div>
+        </div>
+    </section>
+
+    <section id="servicios" class="services">
         <h2>Servicios</h2>
         <div class="service-item">
             <h3>Desarrollo Web</h3>
@@ -91,21 +101,20 @@
         </div>
     </section>
 
-    <section class="contact">
+    <section id="contacto" class="contact">
         <h2>Contacto</h2>
         <p>Contáctame en: <a href="mailto:contacto@miportafolio.com">contacto@miportafolio.com</a></p>
+        <form class="contact-form">
+            <input type="text" placeholder="Tu nombre" required>
+            <input type="email" placeholder="Tu email" required>
+            <textarea placeholder="Tu mensaje" required></textarea>
+            <button type="submit">Enviar</button>
+        </form>
     </section>
 
     <footer>
         <p>&copy; 2025 Mi Portafolio</p>
     </footer>
-
-    <div id="reader-modal" class="modal">
-        <div class="modal-content">
-            <span class="close-modal">&times;</span>
-            <pre><code id="reader-content"></code></pre>
-        </div>
-    </div>
 
     <script src="pagina_principal.js"></script>
 </body>

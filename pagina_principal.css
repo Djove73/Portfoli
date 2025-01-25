@@ -1,3 +1,4 @@
+/* Estilos básicos existentes */
 * {
     margin: 0;
     padding: 0;
@@ -10,6 +11,10 @@
     --accent-color: #0066cc;
     --text-primary: #e0e0e0;
     --text-secondary: #a0a0a0;
+    --light-bg: #f5f5f5;
+    --light-secondary: #ffffff;
+    --light-text-primary: #121212;
+    --light-text-secondary: #606060;
 }
 
 body {
@@ -17,7 +22,7 @@ body {
     color: var(--text-primary);
     font-family: 'Inter', 'Arial', sans-serif;
     line-height: 1.6;
-    perspective: 1000px;
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 header {
@@ -25,8 +30,150 @@ header {
     padding: 20px;
     text-align: center;
     position: relative;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
     transition: all 0.3s ease;
+}
+
+/* Botón de modo claro/oscuro */
+.theme-toggle {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    cursor: pointer;
+    background: var(--accent-color);
+    color: #fff;
+    border: none;
+    border-radius: 20px;
+    padding: 10px 20px;
+    font-size: 14px;
+    font-weight: bold;
+    transition: background 0.3s ease;
+}
+
+.theme-toggle:hover {
+    background: #005bb5;
+}
+
+/* Animaciones */
+.section {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.section.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Testimonios */
+.testimonials {
+    background-color: var(--dark-secondary);
+    padding: 60px 120px;
+    text-align: center;
+}
+
+.testimonials h2 {
+    margin-bottom: 30px;
+    font-size: 2rem;
+    color: var(--accent-color);
+}
+
+.testimonial-item {
+    margin: 0 auto;
+    max-width: 600px;
+    background-color: rgba(50, 50, 50, 0.6);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+.testimonial-item p {
+    font-size: 1.1rem;
+    color: var(--text-secondary);
+    margin-bottom: 10px;
+}
+
+.testimonial-item .author {
+    font-size: 1rem;
+    font-weight: bold;
+    color: var(--accent-color);
+}
+
+/* Blog */
+.blog {
+    background-color: var(--dark-secondary);
+    padding: 60px 120px;
+    text-align: center;
+}
+
+.blog h2 {
+    color: var(--accent-color);
+    margin-bottom: 30px;
+}
+
+.blog .blog-post {
+    margin: 20px 0;
+    padding: 20px;
+    background-color: rgba(30, 30, 30, 0.8);
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+.blog .blog-post h3 {
+    font-size: 1.5rem;
+    color: var(--text-primary);
+}
+
+.blog .blog-post p {
+    font-size: 1rem;
+    color: var(--text-secondary);
+}
+
+/* Mapa interactivo */
+.map {
+    padding: 60px 120px;
+    text-align: center;
+    background-color: var(--dark-bg);
+}
+
+.map iframe {
+    width: 100%;
+    height: 300px;
+    border: 0;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* Efectos generales */
+button {
+    cursor: pointer;
+}
+
+a {
+    text-decoration: none;
+}
+
+/* Transiciones entre temas */
+body.light {
+    background-color: var(--light-bg);
+    color: var(--light-text-primary);
+}
+
+body.light header {
+    background-color: var(--light-secondary);
+}
+
+body.light .testimonial-item {
+    background-color: var(--light-secondary);
+}
+
+body.light .blog .blog-post {
+    background-color: var(--light-secondary);
+}
+
+body.light .map iframe {
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
 }
 
 .main-section {

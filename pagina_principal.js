@@ -1,5 +1,36 @@
 document.addEventListener('DOMContentLoaded', function() {
-    // Advanced Smooth Scrolling with Easing
+    // ============================
+    // Código Antiguo
+    // ============================
+
+    // Mostrar y ocultar el menú de lector
+    const readerToggle = document.querySelector('.reader-toggle');
+    const readerMenu = document.querySelector('.reader-menu');
+    readerToggle.addEventListener('click', (e) => {
+        e.preventDefault();
+        readerMenu.classList.toggle('visible');
+    });
+
+    // Cargar el contenido del archivo seleccionado en el menú de lector
+    const readerItems = document.querySelectorAll('.reader-item');
+    readerItems.forEach(item => {
+        item.addEventListener('click', async (e) => {
+            e.preventDefault();
+            const source = e.target.getAttribute('data-source');
+            try {
+                const response = await fetch(source);
+                const content = await response.text();
+                alert(`Contenido cargado desde ${source}:\n\n${content}`);
+            } catch (err) {
+                alert(`Error al cargar el contenido de ${source}`);
+            }
+        });
+    });
+
+    // ============================
+    // Código Nuevo: Smooth Scrolling
+    // ============================
+
     const smoothScroll = (target, duration = 800) => {
         const targetPosition = target.getBoundingClientRect().top + window.pageYOffset;
         const startPosition = window.pageYOffset;
@@ -14,7 +45,6 @@ document.addEventListener('DOMContentLoaded', function() {
             if (timeElapsed < duration) requestAnimationFrame(animation);
         }
 
-        // Easing function for smooth scroll
         function ease(t, b, c, d) {
             t /= d / 2;
             if (t < 1) return c / 2 * t * t * t + b;
@@ -25,7 +55,6 @@ document.addEventListener('DOMContentLoaded', function() {
         requestAnimationFrame(animation);
     };
 
-    // Enhanced Navigation
     const navLinks = document.querySelectorAll('nav ul li a');
     navLinks.forEach(link => {
         link.addEventListener('click', function(e) {
@@ -46,28 +75,47 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // Advanced Technology Icon Interactions
-    const techIcons = document.querySelectorAll('.technologies i');
-    techIcons.forEach(icon => {
-        icon.addEventListener('mouseenter', function() {
-            const tooltip = document.createElement('div');
-            tooltip.textContent = this.classList[1].split('-')[1].toUpperCase();
-            tooltip.style.position = 'absolute';
-            tooltip.style.background = 'rgba(0,0,0,0.8)';
-            tooltip.style.color = 'white';
-            tooltip.style.padding = '5px 10px';
-            tooltip.style.borderRadius = '5px';
-            tooltip.style.fontSize = '12px';
-            tooltip.style.transform = 'translateY(-100%)';
-            this.appendChild(tooltip);
-        });
+    // ============================
+    // Código Nuevo: Pestaña Emergente Dinámica
+    // ============================
 
-        icon.addEventListener('mouseleave', function() {
-            this.lastChild.remove();
-        });
+    const projectCards = document.querySelectorAll('.project-card');
+
+    // Creamos un elemento dinámico para la pestaña emergente
+    const hoverTab = document.createElement('div');
+    hoverTab.classList.add('hover-tab');
+    document.body.appendChild(hoverTab);
+
+    function showTab(event) {
+        const card = event.currentTarget;
+        const synopsis = card.getAttribute('data-synopsis');
+        hoverTab.textContent = synopsis;
+        hoverTab.style.display = 'block';
+        const { clientX: mouseX, clientY: mouseY } = event;
+        hoverTab.style.left = `${mouseX + 15}px`;
+        hoverTab.style.top = `${mouseY + 15}px`;
+    }
+
+    function hideTab() {
+        hoverTab.style.display = 'none';
+    }
+
+    function moveTab(event) {
+        const { clientX: mouseX, clientY: mouseY } = event;
+        hoverTab.style.left = `${mouseX + 15}px`;
+        hoverTab.style.top = `${mouseY + 15}px`;
+    }
+
+    projectCards.forEach(card => {
+        card.addEventListener('mouseenter', showTab);
+        card.addEventListener('mousemove', moveTab);
+        card.addEventListener('mouseleave', hideTab);
     });
 
-    // Advanced Particle Background with Performance Optimization
+    // ============================
+    // Código Nuevo: Partículas
+    // ============================
+
     const particleContainer = document.createElement('div');
     particleContainer.style.position = 'fixed';
     particleContainer.style.top = '0';
@@ -112,16 +160,10 @@ document.addEventListener('DOMContentLoaded', function() {
 
     createOptimizedParticles();
 
-    // Performance and Accessibility Monitor
-    window.addEventListener('load', () => {
-        const perfEntries = performance.getEntriesByType('navigation')[0];
-        console.log('Page Load Performance:', {
-            loadTime: perfEntries.loadEventEnd - perfEntries.startTime,
-            domInteractive: perfEntries.domInteractive - perfEntries.startTime
-        });
-    });
+    // ============================
+    // Código Nuevo: Lazy Sidebar
+    // ============================
 
-    // Lazy Loading for Technology Sidebar
     const lazyLoadSidebar = () => {
         const header = document.querySelector('header');
         const technologies = document.getElementById('technologies');
@@ -143,75 +185,7 @@ document.addEventListener('DOMContentLoaded', function() {
             border-bottom-left-radius: 10px;
             transition: width 0.3s ease;
         `;
-
-        // Rest of the sidebar implementation remains similar to previous version
-        // ... (previous sidebar code)
     };
 
-    // Execute lazy sidebar loading after a short delay
     setTimeout(lazyLoadSidebar, 500);
-
-    // Reader Dropdown Functionality
-    const readerItems = document.querySelectorAll('.reader-item');
-    const readerModal = document.getElementById('reader-modal');
-    const readerContent = document.getElementById('reader-content');
-    const closeModal = document.querySelector('.close-modal');
-
-    readerItems.forEach(item => {
-        item.addEventListener('click', function(e) {
-            e.preventDefault();
-            const source = this.getAttribute('data-source');
-            
-            fetch(source)
-                .then(response => response.text())
-                .then(data => {
-                    readerContent.textContent = data;
-                    readerModal.style.display = 'block';
-                })
-                .catch(error => {
-                    console.error('Error loading file:', error);
-                });
-        });
-    });
-
-    // Close modal when clicking on close button or outside the modal
-    closeModal.addEventListener('click', () => {
-        readerModal.style.display = 'none';
-    });
-
-    window.addEventListener('click', (e) => {
-        if (e.target === readerModal) {
-            readerModal.style.display = 'none';
-        }
-    });
-});
-
-// Obtener todos los elementos del menú con drop-down
-const menuItems = document.querySelectorAll('.menu-item');
-
-// Añadir eventos a cada elemento del menú
-menuItems.forEach((item) => {
-    const link = item.querySelector('a');
-    const dropdown = item.querySelector('.dropdown');
-
-    link.addEventListener('click', (e) => {
-        e.preventDefault(); // Evita el salto al enlace
-
-        // Cerrar otros menús abiertos
-        menuItems.forEach((otherItem) => {
-            if (otherItem !== item) {
-                otherItem.classList.remove('open');
-            }
-        });
-
-        // Alternar visibilidad del drop-down actual
-        item.classList.toggle('open');
-    });
-
-    // Cerrar el menú al hacer clic fuera
-    document.addEventListener('click', (e) => {
-        if (!item.contains(e.target)) {
-            item.classList.remove('open');
-        }
-    });
 });
