@@ -116,17 +116,27 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function typeWriter() {
         const currentPhrase = phrases[currentPhraseIndex];
-        if (isDeleting) {
-            charIndex--;
-            textElement.textContent = currentPhrase.substring(0, charIndex);
-        } else {
-            charIndex++;
-            textElement.textContent = currentPhrase.substring(0, charIndex);
+        let displayedText = currentPhrase.substring(0, charIndex);
+        
+        // Mostrar el texto en el elemento
+        textElement.innerHTML = displayedText;
+
+        // Una vez que se haya escrito toda la palabra, aplica la clase 'blue-word'
+        if (!isDeleting && charIndex === currentPhrase.length) {
+            textElement.classList.add("blue-word");  // Añadimos la clase para iluminar de azul
         }
 
+        if (isDeleting) {
+            charIndex--;
+        } else {
+            charIndex++;
+        }
+
+        // Lógica para detener la escritura y borrar la frase
         if (!isDeleting && charIndex === currentPhrase.length) {
             setTimeout(() => {
                 isDeleting = true;
+                textElement.classList.remove("blue-word");  // Quitamos el color azul al borrar
             }, 1000);
         } else if (isDeleting && charIndex === 0) {
             isDeleting = false;
@@ -138,5 +148,3 @@ document.addEventListener('DOMContentLoaded', () => {
 
     typeWriter();
 });
-
-
