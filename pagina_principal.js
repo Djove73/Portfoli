@@ -101,3 +101,42 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 });
+
+document.addEventListener('DOMContentLoaded', () => {
+    const textElement = document.getElementById("typewriter-text");
+    const phrases = [
+        "Apasionado por el desarrollo web.",
+        "Innovador en cada proyecto.",
+        "Buscando siempre la perfección.",
+        "Mejorando cada día."
+    ];
+    let currentPhraseIndex = 0;
+    let charIndex = 0;
+    let isDeleting = false;
+
+    function typeWriter() {
+        const currentPhrase = phrases[currentPhraseIndex];
+        if (isDeleting) {
+            charIndex--;
+            textElement.textContent = currentPhrase.substring(0, charIndex);
+        } else {
+            charIndex++;
+            textElement.textContent = currentPhrase.substring(0, charIndex);
+        }
+
+        if (!isDeleting && charIndex === currentPhrase.length) {
+            setTimeout(() => {
+                isDeleting = true;
+            }, 1000);
+        } else if (isDeleting && charIndex === 0) {
+            isDeleting = false;
+            currentPhraseIndex = (currentPhraseIndex + 1) % phrases.length;
+        }
+
+        setTimeout(typeWriter, isDeleting ? 100 : 200);
+    }
+
+    typeWriter();
+});
+
+
