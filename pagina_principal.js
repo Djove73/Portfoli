@@ -148,3 +148,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     typeWriter();
 });
+
+document.querySelector('.minimize-btn').addEventListener('click', function () {
+    const header = document.querySelector('header');
+    header.classList.toggle('minimized');
+});
