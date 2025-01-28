@@ -110,7 +110,31 @@ header.minimized .minimize-btn {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
-/* Main Section New Styles */
+/* Título de tecnologías */
+.tech-title {
+    text-align: left;
+    padding-left: 60px;
+    margin-top: 40px;
+    font-size: 1.8rem;
+    color: var(--text-primary);
+}
+
+/* Descripción de tecnologías */
+.tech-description {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 1.2rem;
+    color: var(--text-secondary);
+    line-height: 1.8;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 20px;
+    background: rgba(30, 30, 30, 0.7);
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
 .main-section {
     position: relative;
     min-height: 100vh;
