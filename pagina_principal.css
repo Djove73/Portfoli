@@ -395,7 +395,7 @@ header.minimized .minimize-btn {
 
 .projects {
     background-color: var(--dark-bg);
-    padding: 40px 60px; /* Reducido el padding para más espacio */
+    padding: 40px 20px;
     text-align: center;
     margin-bottom: 40px;
 }
@@ -403,15 +403,15 @@ header.minimized .minimize-btn {
 .project-cards {
     display: flex;
     justify-content: center;
-    gap: 20px;
-    margin: 30px auto;
+    gap: 30px;
+    margin: 20px auto;
+    padding: 0 20px;
     width: 100%;
     max-width: 1200px;
 }
 
 .project-card {
-    flex: 0 1 calc(33.333% - 20px);
-    max-width: 350px;
+    flex: 0 0 350px;
     background: linear-gradient(135deg, rgba(0, 102, 204, 0.2), rgba(30, 30, 30, 0.8));
     border-radius: 12px;
     padding: 20px;
@@ -419,6 +419,30 @@ header.minimized .minimize-btn {
     display: flex;
     flex-direction: column;
     align-items: center;
+}
+
+@media (max-width: 1200px) {
+    .project-cards {
+        overflow-x: auto;
+        justify-content: flex-start;
+        padding-bottom: 20px;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: thin;
+    }
+    
+    .project-cards::-webkit-scrollbar {
+        height: 6px;
+    }
+    
+    .project-cards::-webkit-scrollbar-track {
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 3px;
+    }
+    
+    .project-cards::-webkit-scrollbar-thumb {
+        background: var(--accent-color);
+        border-radius: 3px;
+    }
 }
 
 .project-card h3 {
