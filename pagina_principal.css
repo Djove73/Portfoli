@@ -110,7 +110,6 @@ header.minimized .minimize-btn {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
-/* Título de tecnologías */
 .tech-title {
     text-align: left;
     padding-left: 60px;
@@ -119,7 +118,6 @@ header.minimized .minimize-btn {
     color: var(--text-primary);
 }
 
-/* Descripción de tecnologías */
 .tech-description {
     text-align: center;
     margin-top: 20px;
@@ -404,23 +402,15 @@ header.minimized .minimize-btn {
 
 .project-cards {
     display: flex;
-    justify-content: space-between;
-    gap: 30px;
+    justify-content: center; /* Centra los proyectos horizontalmente */
+    gap: 20px; /* Espacio uniforme entre tarjetas */
     margin-top: 30px;
 }
 
 .project-card {
-    position: relative;
-    border-radius: 15px;
-    padding: 30px;
-    flex: 1;
-    overflow: hidden;
-    background: linear-gradient(135deg, rgba(0, 102, 204, 0.2), rgba(30, 30, 30, 0.8));
-    transition: all 0.4s ease;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
+    flex: 0 0 calc(33.333% - 20px); /* Cada tarjeta ocupa exactamente un tercio del ancho */
+    max-width: calc(33.333% - 20px); /* Asegura que no excedan su tamaño calculado */
+    box-sizing: border-box; /* Incluye padding y borde dentro del ancho */
 }
 
 .project-card h3 {
