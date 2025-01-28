@@ -109,6 +109,16 @@ header.minimized .minimize-btn {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
+.highlight-text {
+    color: rgb(0, 91, 238);  /* Usa el azul de tus variables */
+    font-weight: bold;
+}
+
+.highlight-text2 {
+    color: #629cf4;  /* Usa el azul de tus variables */
+    font-weight: bold;
+}
+
 .main-section {
     display: flex;
     align-items: center;
