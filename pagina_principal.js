@@ -153,3 +153,150 @@ document.querySelector('.minimize-btn').addEventListener('click', function () {
     const header = document.querySelector('header');
     header.classList.toggle('minimized');
 });
+
+// Lista de tecnologías
+const technologies = {
+    left: [
+        { icon: 'fab fa-html5', name: 'HTML', color: '#E34F26' },
+        { icon: 'fab fa-css3-alt', name: 'CSS', color: '#1572B6' },
+        { icon: 'fab fa-php', name: 'PHP', color: '#777BB4' },
+        { icon: 'fab fa-java', name: 'Java', color: '#007396' },
+        { icon: 'fab fa-swift', name: 'Swift', color: '#FA7343' },
+        { icon: 'fab fa-python', name: 'Python', color: '#3776AB' }
+    ],
+    right: [
+        { icon: 'fab fa-android', name: 'Kotlin', color: '#7F52FF' },
+        { icon: 'fas fa-database', name: 'MySQL', color: '#4479A1' },
+        { icon: 'fas fa-leaf', name: 'MongoDB', color: '#47A248' },
+        { icon: 'fab fa-windows', name: 'C#', color: '#512BD4' },
+        { icon: 'fab fa-java', name: 'JavaFX', color: '#225566' },
+        { icon: 'fas fa-mobile-alt', name: 'Flutter', color: '#02569B' }
+    ]
+};
+
+// Esperar a que el DOM esté completamente cargado
+document.addEventListener('DOMContentLoaded', function() {
+    // Crear contenedor principal de tecnologías
+    const techContainer = document.createElement('div');
+    techContainer.className = 'tech-side-container';
+    
+    // Crear y añadir estilos
+    const styles = document.createElement('style');
+    styles.textContent = `
+        .tech-side-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            pointer-events: none;
+            z-index: 100;
+        }
+
+        .tech-column {
+            position: fixed;
+            top: 0;
+            width: 60px;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background: rgba(18, 18, 18, 0.8);
+            padding: 20px 0;
+            overflow: hidden;
+        }
+
+        .tech-column.left {
+            left: 0;
+        }
+
+        .tech-column.right {
+            right: 0;
+        }
+
+        .tech-scroll {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+            animation: scrollTech 30s linear infinite;
+        }
+
+        .tech-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            color: white;
+            transition: transform 0.3s ease;
+        }
+
+        .tech-item i {
+            font-size: 24px;
+            margin-bottom: 5px;
+        }
+
+        .tech-item span {
+            font-size: 10px;
+            text-align: center;
+            opacity: 0.8;
+        }
+
+        @keyframes scrollTech {
+            from {
+                transform: translateY(0);
+            }
+            to {
+                transform: translateY(-50%);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .tech-column {
+                display: none;
+            }
+        }
+    `;
+    document.head.appendChild(styles);
+
+    // Definir las tecnologías
+    const techStacks = {
+        left: [
+            { name: 'HTML', icon: 'fab fa-html5', color: '#E34F26' },
+            { name: 'CSS', icon: 'fab fa-css3-alt', color: '#1572B6' },
+            { name: 'PHP', icon: 'fab fa-php', color: '#777BB4' },
+            { name: 'MongoDB', icon: 'fas fa-database', color: '#47A248' },
+            { name: 'MySQL', icon: 'fas fa-database', color: '#4479A1' },
+            { name: 'Swift', icon: 'fab fa-swift', color: '#FA7343' }
+        ],
+        right: [
+            { name: 'Kotlin', icon: 'fab fa-android', color: '#7F52FF' },
+            { name: 'Java', icon: 'fab fa-java', color: '#007396' },
+            { name: 'JavaFX', icon: 'fab fa-java', color: '#225566' },
+            { name: 'Flutter', icon: 'fas fa-mobile-alt', color: '#02569B' },
+            { name: 'Python', icon: 'fab fa-python', color: '#3776AB' },
+            { name: 'C#', icon: 'fab fa-windows', color: '#512BD4' }
+        ]
+    };
+
+    // Crear columnas
+    ['left', 'right'].forEach(side => {
+        const column = document.createElement('div');
+        column.className = `tech-column ${side}`;
+        
+        const scrollContainer = document.createElement('div');
+        scrollContainer.className = 'tech-scroll';
+
+        // Duplicar las tecnologías para crear un scroll infinito
+        [...techStacks[side], ...techStacks[side]].forEach(tech => {
+            const techItem = document.createElement('div');
+            techItem.className = 'tech-item';
+            techItem.innerHTML = `
+                <i class="${tech.icon}" style="color: ${tech.color}"></i>
+                <span>${tech.name}</span>
+            `;
+            scrollContainer.appendChild(techItem);
+        });
+
+        column.appendChild(scrollContainer);
+        document.body.appendChild(column);
+    });
+});
