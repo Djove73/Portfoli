@@ -118,12 +118,10 @@ document.addEventListener('DOMContentLoaded', () => {
         const currentPhrase = phrases[currentPhraseIndex];
         let displayedText = currentPhrase.substring(0, charIndex);
         
-        // Mostrar el texto en el elemento
         textElement.innerHTML = displayedText;
 
-        // Una vez que se haya escrito toda la palabra, aplica la clase 'blue-word'
         if (!isDeleting && charIndex === currentPhrase.length) {
-            textElement.classList.add("blue-word");  // Añadimos la clase para iluminar de azul
+            textElement.classList.add("blue-word");  
         }
 
         if (isDeleting) {
@@ -132,11 +130,10 @@ document.addEventListener('DOMContentLoaded', () => {
             charIndex++;
         }
 
-        // Lógica para detener la escritura y borrar la frase
         if (!isDeleting && charIndex === currentPhrase.length) {
             setTimeout(() => {
                 isDeleting = true;
-                textElement.classList.remove("blue-word");  // Quitamos el color azul al borrar
+                textElement.classList.remove("blue-word");  
             }, 1000);
         } else if (isDeleting && charIndex === 0) {
             isDeleting = false;
@@ -154,7 +151,6 @@ document.querySelector('.minimize-btn').addEventListener('click', function () {
     header.classList.toggle('minimized');
 });
 
-// Lista de tecnologías
 const technologies = {
     left: [
         { icon: 'fab fa-html5', name: 'HTML', color: '#E34F26' },
@@ -174,13 +170,10 @@ const technologies = {
     ]
 };
 
-// Esperar a que el DOM esté completamente cargado
 document.addEventListener('DOMContentLoaded', function() {
-    // Crear contenedor principal de tecnologías
     const techContainer = document.createElement('div');
     techContainer.className = 'tech-side-container';
     
-    // Crear y añadir estilos
     const styles = document.createElement('style');
     styles.textContent = `
         .tech-side-container {
@@ -257,7 +250,6 @@ document.addEventListener('DOMContentLoaded', function() {
     `;
     document.head.appendChild(styles);
 
-    // Definir las tecnologías
     const techStacks = {
         left: [
             { name: 'HTML', icon: 'fab fa-html5', color: '#E34F26' },
@@ -277,7 +269,6 @@ document.addEventListener('DOMContentLoaded', function() {
         ]
     };
 
-    // Crear columnas
     ['left', 'right'].forEach(side => {
         const column = document.createElement('div');
         column.className = `tech-column ${side}`;
@@ -285,7 +276,6 @@ document.addEventListener('DOMContentLoaded', function() {
         const scrollContainer = document.createElement('div');
         scrollContainer.className = 'tech-scroll';
 
-        // Duplicar las tecnologías para crear un scroll infinito
         [...techStacks[side], ...techStacks[side]].forEach(tech => {
             const techItem = document.createElement('div');
             techItem.className = 'tech-item';
