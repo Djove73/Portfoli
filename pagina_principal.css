@@ -355,8 +355,80 @@ header.minimized .minimize-btn {
 .technologies {
     display: flex;
     gap: 25px;
-    flex-wrap: wrap;
+    flex-wrap: nowrap; /* Evita que las tecnologías se envuelvan a la siguiente línea */
     margin-top: 20px;
+    overflow-x: auto; 
+}
+
+.technologies-section {
+    margin-top: 40px;
+    padding: 20px;
+    background: rgba(30, 30, 30, 0.5);
+    border-radius: 15px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.tech-container {
+    margin-top: 30px;
+    padding: 20px;
+}
+
+.tech-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 30px;
+    margin-bottom: 40px;
+}
+
+.tech-category {
+    background: rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.tech-category:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+.tech-category h4 {
+    color: var(--accent-color);
+    font-size: 1.2rem;
+    margin-bottom: 15px;
+    text-align: center;
+    position: relative;
+}
+
+.tech-category h4::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 50px;
+    height: 2px;
+    background: var(--accent-color);
+}
+
+.tech-category ul {
+    display: flex; /* Cambia la disposición a horizontal */
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    text-align: center;
+    gap: 10px; 
+}
+
+.tech-category ul li {
+    margin-bottom: 0; /* Elimina el margen inferior */
+    color: var(--text-secondary);
+    font-size: 1rem;
+}
+
+.tech-category ul li:last-child {
+    margin-bottom: 0;
 }
 
 .technologies i {
