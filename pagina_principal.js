@@ -155,18 +155,29 @@ const technologies = {
     left: [
         { icon: 'fab fa-html5', name: 'HTML', color: '#E34F26' },
         { icon: 'fab fa-css3-alt', name: 'CSS', color: '#1572B6' },
+        { icon: 'fab fa-js', name: 'JavaScript', color: '#F7DF1E' }, // JavaScript añadido
         { icon: 'fab fa-php', name: 'PHP', color: '#777BB4' },
-        { icon: 'fab fa-java', name: 'Java', color: '#007396' },
+        { icon: 'fas fa-database', name: 'MongoDB', color: '#47A248' },
+        { icon: 'fas fa-database', name: 'MySQL', color: '#4479A1' },
         { icon: 'fab fa-swift', name: 'Swift', color: '#FA7343' },
-        { icon: 'fab fa-python', name: 'Python', color: '#3776AB' }
+        { icon: 'fab fa-git-alt', name: 'Git', color: '#F05032' },
+        { icon: 'fab fa-github', name: 'GitHub', color: '#ffffff' }, // Color más claro
+        { icon: 'fas fa-terminal', name: 'Bash', color: '#4EAA25' },
+        { icon: 'fas fa-tools', name: 'Android Studio', color: '#3DDC84' } // Android Studio añadido
     ],
     right: [
         { icon: 'fab fa-android', name: 'Kotlin', color: '#7F52FF' },
-        { icon: 'fas fa-database', name: 'MySQL', color: '#4479A1' },
-        { icon: 'fas fa-leaf', name: 'MongoDB', color: '#47A248' },
-        { icon: 'fab fa-windows', name: 'C#', color: '#512BD4' },
+        { icon: 'fab fa-java', name: 'Java', color: '#007396' },
         { icon: 'fab fa-java', name: 'JavaFX', color: '#225566' },
-        { icon: 'fas fa-mobile-alt', name: 'Flutter', color: '#02569B' }
+        { icon: 'fas fa-mobile-alt', name: 'Flutter', color: '#02569B' },
+        { icon: 'fab fa-python', name: 'Python', color: '#3776AB' },
+        { icon: 'fab fa-windows', name: 'C#', color: '#512BD4' },
+        { icon: 'fas fa-cube', name: 'SwiftUI', color: '#FA7343' }, // SwiftUI añadido
+        { icon: 'fab fa-js', name: 'JavaScript', color: '#F7DF1E' }, // JavaScript añadido
+        { icon: 'fab fa-git-alt', name: 'Git', color: '#F05032' },
+        { icon: 'fab fa-github', name: 'GitHub', color: '#ffffff' }, // Color más claro
+        { icon: 'fas fa-terminal', name: 'Bash', color: '#4EAA25' },
+        { icon: 'fas fa-tools', name: 'Android Studio', color: '#3DDC84' } // Android Studio añadido
     ]
 };
 
@@ -250,25 +261,6 @@ document.addEventListener('DOMContentLoaded', function() {
     `;
     document.head.appendChild(styles);
 
-    const techStacks = {
-        left: [
-            { name: 'HTML', icon: 'fab fa-html5', color: '#E34F26' },
-            { name: 'CSS', icon: 'fab fa-css3-alt', color: '#1572B6' },
-            { name: 'PHP', icon: 'fab fa-php', color: '#777BB4' },
-            { name: 'MongoDB', icon: 'fas fa-database', color: '#47A248' },
-            { name: 'MySQL', icon: 'fas fa-database', color: '#4479A1' },
-            { name: 'Swift', icon: 'fab fa-swift', color: '#FA7343' }
-        ],
-        right: [
-            { name: 'Kotlin', icon: 'fab fa-android', color: '#7F52FF' },
-            { name: 'Java', icon: 'fab fa-java', color: '#007396' },
-            { name: 'JavaFX', icon: 'fab fa-java', color: '#225566' },
-            { name: 'Flutter', icon: 'fas fa-mobile-alt', color: '#02569B' },
-            { name: 'Python', icon: 'fab fa-python', color: '#3776AB' },
-            { name: 'C#', icon: 'fab fa-windows', color: '#512BD4' }
-        ]
-    };
-
     ['left', 'right'].forEach(side => {
         const column = document.createElement('div');
         column.className = `tech-column ${side}`;
@@ -276,7 +268,7 @@ document.addEventListener('DOMContentLoaded', function() {
         const scrollContainer = document.createElement('div');
         scrollContainer.className = 'tech-scroll';
 
-        [...techStacks[side], ...techStacks[side]].forEach(tech => {
+        [...technologies[side], ...technologies[side]].forEach(tech => {
             const techItem = document.createElement('div');
             techItem.className = 'tech-item';
             techItem.innerHTML = `

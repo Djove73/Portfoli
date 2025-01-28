@@ -184,7 +184,7 @@ header.minimized .minimize-btn {
     z-index: 2;
     display: flex;
     gap: 60px;
-    max-width: 1200px;
+    max-width: 950px;
     margin: 0 auto;
     background: rgba(30, 30, 30, 0.5);
     backdrop-filter: blur(10px);
@@ -371,7 +371,6 @@ header.minimized .minimize-btn {
     visibility: visible;
 }
 
-/* Projects Section */
 .projects {
     background-color: var(--dark-bg);
     padding: 60px 120px;
