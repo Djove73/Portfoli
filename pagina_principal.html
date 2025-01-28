@@ -29,26 +29,56 @@
     </header>    
 
     <section class="main-section">
-        <img src="Imagenes/imagen_avatar.jpeg" alt="Imagen principal">
-        <div class="main-section-text">
-            <h1>Bienvenido a mi <span class="highlight-text">Portfolio</span><span class="highlight-text2">.</span></h1>            
-            <div id="typewriter-text"></div>
-            <div class="bio">
-                <h3>Sobre Mí.</h3>
-                <p>Desarrollador web con experiencia en múltiples tecnologías. Me especializo en crear soluciones digitales innovadoras y eficientes, combinando frontend y backend con pasión por el diseño y la funcionalidad.</p>
-            </div>
+        <div class="background-shapes">
+            <div class="shape shape-1"></div>
+            <div class="shape shape-2"></div>
+            <div class="shape shape-3"></div>
         </div>
-        <div class="technologies" id="technologies">
-            <i class="fab fa-html5"></i>
-            <i class="fab fa-css3-alt"></i>
-            <i class="fab fa-php"></i>
-            <i class="fab fa-java"></i>
-            <i class="fab fa-swift"></i>
-            <i class="fab fa-python"></i>
-            <i class="fab fa-linux"></i>
-            <i class="fas fa-database"></i>
-            <i class="fas fa-cubes"></i>
-            <i class="fab fa-kotlin"></i> 
+        
+        <div class="content-wrapper">
+            <div class="profile-section">
+                <div class="profile-image-container">
+                    <div class="profile-background"></div>
+                    <img src="Imagenes/imagen_avatar.jpeg" alt="Imagen principal" class="profile-image">
+                    <div class="profile-border"></div>
+                </div>
+                <div class="profile-social">
+                    <a href="https://github.com/Djove73/" class="social-link github">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="https://www.linkedin.com/in/roger-jové-tusell-10163a2b7/" class="social-link linkedin">
+                        <i class="fab fa-linkedin"></i>
+                    </a>
+                    <a href="https://www.instagram.com/rogeer_jove/" class="social-link instagram">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                </div>
+            </div>
+    
+            <div class="content-section">
+                <div class="main-heading">
+                    <h1>Bienvenido a mi <span class="highlight-text">Portfolio</span><span class="highlight-text2">.</span></h1>
+                    <div id="typewriter-text" class="typewriter"></div>
+                </div>
+                
+                <div class="bio">
+                    <h3>Sobre Mí<span class="accent-dot">.</span></h3>
+                    <p>Desarrollador web con experiencia en múltiples tecnologías. Me especializo en crear soluciones digitales innovadoras y eficientes, combinando frontend y backend con pasión por el diseño y la funcionalidad.</p>
+                </div>
+    
+                <div class="technologies">
+                    <i class="fab fa-html5" data-tooltip="HTML5"></i>
+                    <i class="fab fa-css3-alt" data-tooltip="CSS3"></i>
+                    <i class="fab fa-php" data-tooltip="PHP"></i>
+                    <i class="fab fa-java" data-tooltip="Java"></i>
+                    <i class="fab fa-swift" data-tooltip="Swift"></i>
+                    <i class="fab fa-python" data-tooltip="Python"></i>
+                    <i class="fab fa-linux" data-tooltip="Linux"></i>
+                    <i class="fas fa-database" data-tooltip="Databases"></i>
+                    <i class="fas fa-cubes" data-tooltip="Blockchain"></i>
+                    <i class="fab fa-kotlin" data-tooltip="Kotlin"></i>
+                </div>
+            </div>
         </div>
     </section>
 
