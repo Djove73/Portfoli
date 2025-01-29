@@ -123,31 +123,21 @@ header.minimized .minimize-btn {
     flex-direction: column;
     align-items: center;
     width: 100%;
-    max-width: 1150px; /* Ajusta según tu diseño */
+    max-width: 1150px; 
     margin: 0 auto;
     position: relative;
-    overflow: hidden; /* Evita que los hijos sobresalgan */
+    overflow: hidden; 
     padding: 20px;
     box-sizing: border-box;
+    border: 2px solid var(--accent-color); 
+    border-radius: 15px; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: var(--background-color); 
 }
 
 .main-section * {
     max-width: 100%;
     box-sizing: border-box;
-}
-
-.sobre-mi, .technologies-section {
-    width: 100%; /* Asegura que no se expandan más allá de main-section */
-    max-width: 100%; /* Evita que crezcan más de lo permitido */
-    box-sizing: border-box;
-    padding: 20px;
-    overflow: hidden; /* Previene que el contenido interno desborde */
-}
-
-.sobre-mi {
-    flex: 2; /* Que ocupe más espacio que tecnologías */
-    max-width: 55%;
-    margin-left: 5%; /* Separación de tecnologías */
 }
 
 .background-shapes {
@@ -194,9 +184,9 @@ header.minimized .minimize-btn {
 
 .content-wrapper {
     display: flex;
-    flex-direction: row; /* Asegura que los elementos estén en fila */
+    flex-direction: row; 
     align-items: flex-start;
-    justify-content: flex-start; /* Alinea los elementos a la izquierda */
+    justify-content: flex-start; 
     width: 100%;
     max-width: 1200px;
     margin: 0 auto;
@@ -329,13 +319,11 @@ header.minimized .minimize-btn {
 }
 
 .technologies-section {
-    display: flex;
-    flex-wrap: wrap; /* Permite que los elementos pasen a la siguiente línea si no caben */
-    justify-content: flex-start; /* Alinea los elementos desde la izquierda */
-    align-items: center;
-    gap: 20px;
-    flex: 1;  
-    max-width: 100%; /* Asegura que ocupe todo el ancho disponible */
+    align-self: flex-start; 
+    width: 100%; 
+    max-width: 100%; 
+    box-sizing: border-box;
+    padding: 20px;
 }
 
 .tech-title {
@@ -351,12 +339,12 @@ header.minimized .minimize-btn {
 
 .tech-grid {
     display: flex;
-    flex-wrap: wrap; /* Permite que los elementos se distribuyan en varias líneas */
-    justify-content: flex-start; /* Alinea los elementos de izquierda a derecha */
+    flex-wrap: wrap; 
+    justify-content: flex-start; 
     align-items: center;
-    gap: 20px; /* Espaciado entre elementos */
+    gap: 20px; 
     width: 100%;
-    overflow-x: auto; /* Permite el scroll horizontal si es necesario */
+    overflow-x: auto; 
     padding: 10px 0;
 }
 
@@ -375,8 +363,8 @@ header.minimized .minimize-btn {
 }
 
 .tech-category {
-    flex: 0 0 auto; /* Mantiene los elementos alineados horizontalmente */
-    min-width: 200px; /* Tamaño mínimo para evitar que se apilen */
+    flex: 0 0 auto; 
+    min-width: 200px; 
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -414,7 +402,7 @@ header.minimized .minimize-btn {
     display: flex;
     justify-content: center;
     gap: 15px;
-    flex-wrap: nowrap; /* Asegura que los íconos se mantengan en fila */
+    flex-wrap: nowrap; 
 }
 
 .tech-item {
