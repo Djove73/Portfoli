@@ -373,19 +373,28 @@ header.minimized .minimize-btn {
     padding: 20px;
 }
 
+/* ... (resto del CSS permanece igual hasta la sección de tecnologías) ... */
+
 .tech-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    display: flex;
+    justify-content: center;
+    align-items: center;
     gap: 30px;
     margin-bottom: 40px;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    padding: 20px 0;
 }
 
 .tech-category {
+    flex: 0 0 auto;
+    min-width: 200px;
     background: rgba(0, 0, 0, 0.2);
     padding: 20px;
     border-radius: 12px;
     border: 1px solid rgba(255, 255, 255, 0.05);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+    text-align: center;
 }
 
 .tech-category:hover {
@@ -412,6 +421,53 @@ header.minimized .minimize-btn {
     background: var(--accent-color);
 }
 
+.tech-items {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: nowrap;
+}
+
+.tech-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+}
+
+.tech-item i {
+    font-size: 1.5rem;
+    color: var(--text-secondary);
+    transition: all 0.3s ease;
+}
+
+.tech-item span {
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+}
+
+.tech-item:hover i {
+    color: var(--accent-color);
+    transform: translateY(-3px);
+}
+
+/* Añade estilos para el scrollbar horizontal si es necesario */
+.tech-grid::-webkit-scrollbar {
+    height: 6px;
+}
+
+.tech-grid::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 3px;
+}
+
+.tech-grid::-webkit-scrollbar-thumb {
+    background: var(--accent-color);
+    border-radius: 3px;
+}
+
+/* ... (resto del CSS permanece igual) ... */
+
 .tech-category ul {
     display: flex; /* Cambia la disposición a horizontal */
     list-style: none;
@@ -419,12 +475,21 @@ header.minimized .minimize-btn {
     margin: 0;
     text-align: center;
     gap: 10px; 
+    justify-content: center; /* Centra los elementos horizontalmente */
+    align-items: center; /* Centra los elementos verticalmente */
+    flex-wrap: wrap; /* Permite que los elementos se envuelvan */
+    background-color: var(--main-section-bg); /* Asigna el mismo fondo que .main-section */
+    border: 1px solid var(--main-section-border); /* Asigna el mismo borde que .main-section */
+    border-radius: 5px; /* Asigna el mismo radio de borde que .main-section */
+    padding: 20px; /* Asigna el mismo padding que .main-section */
 }
 
 .tech-category ul li {
     margin-bottom: 0; /* Elimina el margen inferior */
     color: var(--text-secondary);
-    font-size: 1rem;
+    padding: 10px; /* Asigna el mismo padding que los elementos de .main-section */
+    border-radius: 3px; /* Asigna el mismo radio de borde que los elementos de .main-section */
+    background-color: var(--item-bg); /* Asigna el mismo fondo que los elementos de .main-section */
 }
 
 .tech-category ul li:last-child {
