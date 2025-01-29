@@ -144,6 +144,12 @@ header.minimized .minimize-btn {
     overflow: hidden; /* Previene que el contenido interno desborde */
 }
 
+.sobre-mi {
+    flex: 2; /* Que ocupe más espacio que tecnologías */
+    max-width: 55%;
+    margin-left: 5%; /* Separación de tecnologías */
+}
+
 .background-shapes {
     position: absolute;
     width: 100%;
@@ -187,20 +193,15 @@ header.minimized .minimize-btn {
 }
 
 .content-wrapper {
-    position: relative;
-    z-index: 2;
     display: flex;
-    gap: 60px;
-    max-width: 1200px;
-    width: 100%;
-    margin: 0 auto;
-    background: rgba(30, 30, 30, 0.5);
-    backdrop-filter: blur(10px);
-    border-radius: 20px;
-    padding: 40px;
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    flex-direction: row; /* Asegura que los elementos estén en fila */
     align-items: flex-start;
+    justify-content: flex-start; /* Alinea los elementos a la izquierda */
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    box-sizing: border-box;
 }
 
 .profile-section {
@@ -329,10 +330,12 @@ header.minimized .minimize-btn {
 
 .technologies-section {
     display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
+    flex-wrap: wrap; /* Permite que los elementos pasen a la siguiente línea si no caben */
+    justify-content: flex-start; /* Alinea los elementos desde la izquierda */
     align-items: center;
     gap: 20px;
+    flex: 1;  
+    max-width: 100%; /* Asegura que ocupe todo el ancho disponible */
 }
 
 .tech-title {
@@ -347,15 +350,14 @@ header.minimized .minimize-btn {
 }
 
 .tech-grid {
-    width: 100%;
     display: flex;
-    justify-content: flex-start;
-    align-items: stretch;
-    gap: 30px;
-    margin-bottom: 40px;
-    flex-wrap: nowrap;
-    overflow-x: auto;
-    padding: 20px 0;
+    flex-wrap: wrap; /* Permite que los elementos se distribuyan en varias líneas */
+    justify-content: flex-start; /* Alinea los elementos de izquierda a derecha */
+    align-items: center;
+    gap: 20px; /* Espaciado entre elementos */
+    width: 100%;
+    overflow-x: auto; /* Permite el scroll horizontal si es necesario */
+    padding: 10px 0;
 }
 
 .tech-grid::-webkit-scrollbar {
@@ -373,13 +375,13 @@ header.minimized .minimize-btn {
 }
 
 .tech-category {
-    flex: 0 0 auto;
-    min-width: 200px;
+    flex: 0 0 auto; /* Mantiene los elementos alineados horizontalmente */
+    min-width: 200px; /* Tamaño mínimo para evitar que se apilen */
     display: flex;
     flex-direction: column;
     align-items: center;
     background: rgba(0, 0, 0, 0.2);
-    padding: 20px;
+    padding: 15px;
     border-radius: 12px;
     border: 1px solid rgba(255, 255, 255, 0.05);
 }
@@ -412,7 +414,7 @@ header.minimized .minimize-btn {
     display: flex;
     justify-content: center;
     gap: 15px;
-    flex-wrap: nowrap;
+    flex-wrap: nowrap; /* Asegura que los íconos se mantengan en fila */
 }
 
 .tech-item {
