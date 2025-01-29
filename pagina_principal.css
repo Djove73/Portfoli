@@ -34,7 +34,6 @@ body.light header {
 }
 
 header {
-    background-color: var(--dark-secondary);
     padding: 20px;
     text-align: center;
     position: sticky;
@@ -42,6 +41,12 @@ header {
     z-index: 1000;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
     transition: all 0.3s ease;
+    background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+    display: flex;
+    color: white;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    align-items: center;
+    justify-content: space-between;
 }
 
 header.minimized {
@@ -80,12 +85,11 @@ header.minimized .minimize-btn {
 }
 
 .main-menu ul {
-    display: flex;
     list-style: none;
-    justify-content: center;
+    display: flex;
     gap: 20px;
-    padding: 0;
     margin: 0;
+    padding: 0;
 }
 
 .main-menu ul li {
@@ -96,7 +100,7 @@ header.minimized .minimize-btn {
     display: inline-block;
     padding: 10px 20px;
     font-size: 1rem;
-    font-weight: bold;
+    font-weight: 400;
     text-transform: uppercase;
     color: var(--text-primary);
     background-color: var(--accent-color);
@@ -104,6 +108,7 @@ header.minimized .minimize-btn {
     text-decoration: none;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     transition: all 0.3s ease;
+    color: white;
 }
 
 .main-menu ul li a:hover {
