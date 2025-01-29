@@ -14,6 +14,7 @@
     --light-secondary: #ffffff;
     --light-text-primary: #121212;
     --light-text-secondary: #606060;
+    
 }
 
 body {
@@ -482,6 +483,8 @@ header.minimized .minimize-btn {
     display: flex;
     flex-direction: column;
     align-items: center;
+    border-radius: 12px;
+    height: 500px;
 }
 
 .project-card h3 {
@@ -580,7 +583,7 @@ header.minimized .minimize-btn {
 }
 
 .testimonials {
-    background: #f9f9f9;
+    background: var(--dark-secondary);
     padding: 50px 20px;
     text-align: center;
 }
@@ -588,7 +591,7 @@ header.minimized .minimize-btn {
 .testimonials h2 {
     font-size: 2.5rem;
     margin-bottom: 20px;
-    color: #333;
+    color: var(--text-primary);
 }
 
 .testimonials-carousel {
@@ -599,7 +602,7 @@ header.minimized .minimize-btn {
 }
 
 .testimonial {
-    background: white;
+    background: var(--dark-bg);
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     padding: 20px;
@@ -614,13 +617,13 @@ header.minimized .minimize-btn {
 
 .testimonial p {
     font-size: 1rem;
-    color: #555;
+    color: var(--text-secondary);
     margin-bottom: 10px;
 }
 
 .testimonial h4 {
     font-size: 1.2rem;
-    color: #333;
+    color: var(--text-primary);
     margin-top: 0;
 }
 
@@ -628,9 +631,6 @@ header.minimized .minimize-btn {
     margin: 0 auto;
     max-width: 600px;
     background-color: rgba(50, 50, 50, 0.6);
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
 }
 
 .testimonial-item p {
@@ -643,6 +643,49 @@ header.minimized .minimize-btn {
     font-size: 1rem;
     font-weight: bold;
     color: var(--accent-color);
+}
+
+.services {
+    background: var(--dark-secondary);
+    padding: 50px 20px;
+    text-align: center;
+}
+
+.services h2 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    color: var(--text-primary);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    border-bottom: 2px solid var(--accent-color);
+    display: inline-block;
+    padding-bottom: 10px;
+}
+
+.service-item {
+    background: var(--dark-bg);
+    border-radius: 12px;
+    padding: 20px;
+    margin: 20px 0;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.service-item:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.service-item h3 {
+    font-size: 1.8rem;
+    margin-bottom: 10px;
+    color: var(--accent-color);
+}
+
+.service-item p {
+    font-size: 1rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
 }
 
 .contact {
