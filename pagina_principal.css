@@ -826,6 +826,28 @@ header.minimized .minimize-btn {
     color: var(--text-secondary);
 }
 
+.footer-link {
+    position: relative;
+    display: inline-block;
+    color: inherit;
+    text-decoration: none;
+}
+
+.footer-link::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -2px;
+    width: 0;
+    height: 2px;
+    background-color: blue;
+    transition: width 0.3s ease-in-out;
+}
+
+.footer-link:hover::after {
+    width: 100%;
+}
+
 @keyframes floatAnimation {
     0%, 100% {
         transform: translate(0, 0) rotate(0deg);
