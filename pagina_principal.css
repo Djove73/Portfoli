@@ -24,7 +24,15 @@ body {
     transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-/* Header Styles */
+body.light {
+    background-color: var(--light-bg);
+    color: var(--light-text-primary);
+}
+
+body.light header {
+    background-color: var(--light-secondary);
+}
+
 header {
     background-color: var(--dark-secondary);
     padding: 20px;
@@ -34,6 +42,21 @@ header {
     z-index: 1000;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
     transition: all 0.3s ease;
+}
+
+header.minimized {
+    height: 70px; 
+    padding: 10px 20px;
+    box-shadow: none;
+    overflow: hidden;
+}
+
+header.minimized .main-menu {
+    display: none; 
+}
+
+header.minimized .minimize-btn {
+    transform: rotate(180deg);
 }
 
 .minimize-btn {
@@ -50,21 +73,6 @@ header {
 
 .minimize-btn:hover {
     transform: scale(1.1);
-}
-
-header.minimized {
-    height: 70px; 
-    padding: 10px 20px;
-    box-shadow: none;
-    overflow: hidden;
-}
-
-header.minimized .main-menu {
-    display: none; 
-}
-
-header.minimized .minimize-btn {
-    transform: rotate(180deg);
 }
 
 .main-menu {
@@ -108,29 +116,6 @@ header.minimized .minimize-btn {
 .main-menu ul li a:active {
     transform: scale(1);
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-}
-
-.tech-title {
-    text-align: left;
-    padding-left: 60px;
-    margin-top: 40px;
-    font-size: 1.8rem;
-    color: var(--text-primary);
-}
-
-.tech-description {
-    text-align: center;
-    margin-top: 20px;
-    font-size: 1.2rem;
-    color: var(--text-secondary);
-    line-height: 1.8;
-    max-width: 800px;
-    margin-left: auto;
-    margin-right: auto;
-    padding: 20px;
-    background: rgba(30, 30, 30, 0.7);
-    border-radius: 10px;
-    border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .main-section {
@@ -186,27 +171,13 @@ header.minimized .minimize-btn {
     animation-delay: -10s;
 }
 
-@keyframes floatAnimation {
-    0%, 100% {
-        transform: translate(0, 0) rotate(0deg);
-    }
-    25% {
-        transform: translate(50px, 50px) rotate(90deg);
-    }
-    50% {
-        transform: translate(0, 100px) rotate(180deg);
-    }
-    75% {
-        transform: translate(-50px, 50px) rotate(270deg);
-    }
-}
-
 .content-wrapper {
     position: relative;
     z-index: 2;
     display: flex;
     gap: 60px;
-    max-width: 950px;
+    max-width: 1200px;
+    width: 100%;
     margin: 0 auto;
     background: rgba(30, 30, 30, 0.5);
     backdrop-filter: blur(10px);
@@ -214,6 +185,7 @@ header.minimized .minimize-btn {
     padding: 40px;
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
     border: 1px solid rgba(255, 255, 255, 0.1);
+    align-items: flex-start;
 }
 
 .profile-section {
@@ -222,6 +194,8 @@ header.minimized .minimize-btn {
     flex-direction: column;
     align-items: center;
     gap: 30px;
+    position: sticky;
+    top: 100px;
 }
 
 .profile-image-container {
@@ -237,15 +211,6 @@ header.minimized .minimize-btn {
     background: linear-gradient(135deg, var(--accent-color), #004494);
     border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
     animation: morphBackground 10s infinite ease-in-out;
-}
-
-@keyframes morphBackground {
-    0%, 100% {
-        border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
-    }
-    50% {
-        border-radius: 70% 30% 30% 70% / 70% 70% 30% 30%;
-    }
 }
 
 .profile-image {
@@ -266,15 +231,6 @@ header.minimized .minimize-btn {
     border: 2px solid rgba(255, 255, 255, 0.1);
     border-radius: inherit;
     animation: borderRotate 10s linear infinite;
-}
-
-@keyframes borderRotate {
-    0% {
-        transform: rotate(0deg);
-    }
-    100% {
-        transform: rotate(360deg);
-    }
 }
 
 .profile-social {
@@ -304,10 +260,13 @@ header.minimized .minimize-btn {
     display: flex;
     flex-direction: column;
     gap: 30px;
+    align-items: stretch;
 }
 
 .main-heading {
     margin-bottom: 20px;
+    text-align: left;
+    width: 100%;
 }
 
 .main-heading h1 {
@@ -317,12 +276,6 @@ header.minimized .minimize-btn {
     background: linear-gradient(135deg, #ffffff 0%, #a0a0a0 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-}
-
-.typewriter {
-    font-size: 1.5rem;
-    color: var(--text-secondary);
-    min-height: 2em;
 }
 
 .highlight-text {
@@ -335,7 +288,14 @@ header.minimized .minimize-btn {
     font-weight: bold;
 }
 
+.typewriter {
+    font-size: 1.5rem;
+    color: var(--text-secondary);
+    min-height: 2em;
+}
+
 .bio {
+    width: 100%;
     background: rgba(0, 0, 0, 0.2);
     padding: 30px;
     border-radius: 15px;
@@ -352,15 +312,8 @@ header.minimized .minimize-btn {
     color: var(--accent-color);
 }
 
-.technologies {
-    display: flex;
-    gap: 25px;
-    flex-wrap: nowrap; /* Evita que las tecnologías se envuelvan a la siguiente línea */
-    margin-top: 20px;
-    overflow-x: auto; 
-}
-
 .technologies-section {
+    width: 100%;
     margin-top: 40px;
     padding: 20px;
     background: rgba(30, 30, 30, 0.5);
@@ -368,17 +321,22 @@ header.minimized .minimize-btn {
     border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-.tech-container {
-    margin-top: 30px;
-    padding: 20px;
+.tech-title {
+    text-align: left;
+    margin-bottom: 20px;
+    padding-left: 0;
 }
 
-/* ... (resto del CSS permanece igual hasta la sección de tecnologías) ... */
+.tech-container {
+    width: 100%;
+    padding: 20px 0;
+}
 
 .tech-grid {
+    width: 100%;
     display: flex;
-    justify-content: center;
-    align-items: center;
+    justify-content: flex-start;
+    align-items: stretch;
     gap: 30px;
     margin-bottom: 40px;
     flex-wrap: nowrap;
@@ -386,15 +344,30 @@ header.minimized .minimize-btn {
     padding: 20px 0;
 }
 
+.tech-grid::-webkit-scrollbar {
+    height: 6px;
+}
+
+.tech-grid::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 3px;
+}
+
+.tech-grid::-webkit-scrollbar-thumb {
+    background: var(--accent-color);
+    border-radius: 3px;
+}
+
 .tech-category {
     flex: 0 0 auto;
     min-width: 200px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     background: rgba(0, 0, 0, 0.2);
     padding: 20px;
     border-radius: 12px;
     border: 1px solid rgba(255, 255, 255, 0.05);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    text-align: center;
 }
 
 .tech-category:hover {
@@ -441,93 +414,24 @@ header.minimized .minimize-btn {
     transition: all 0.3s ease;
 }
 
-.tech-item span {
-    font-size: 0.8rem;
-    color: var(--text-secondary);
-}
-
 .tech-item:hover i {
     color: var(--accent-color);
     transform: translateY(-3px);
 }
 
-/* Añade estilos para el scrollbar horizontal si es necesario */
-.tech-grid::-webkit-scrollbar {
-    height: 6px;
-}
-
-.tech-grid::-webkit-scrollbar-track {
-    background: rgba(255, 255, 255, 0.1);
-    border-radius: 3px;
-}
-
-.tech-grid::-webkit-scrollbar-thumb {
-    background: var(--accent-color);
-    border-radius: 3px;
-}
-
-/* ... (resto del CSS permanece igual) ... */
-
-.tech-category ul {
-    display: flex; /* Cambia la disposición a horizontal */
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    text-align: center;
-    gap: 10px; 
-    justify-content: center; /* Centra los elementos horizontalmente */
-    align-items: center; /* Centra los elementos verticalmente */
-    flex-wrap: wrap; /* Permite que los elementos se envuelvan */
-    background-color: var(--main-section-bg); /* Asigna el mismo fondo que .main-section */
-    border: 1px solid var(--main-section-border); /* Asigna el mismo borde que .main-section */
-    border-radius: 5px; /* Asigna el mismo radio de borde que .main-section */
-    padding: 20px; /* Asigna el mismo padding que .main-section */
-}
-
-.tech-category ul li {
-    margin-bottom: 0; /* Elimina el margen inferior */
-    color: var(--text-secondary);
-    padding: 10px; /* Asigna el mismo padding que los elementos de .main-section */
-    border-radius: 3px; /* Asigna el mismo radio de borde que los elementos de .main-section */
-    background-color: var(--item-bg); /* Asigna el mismo fondo que los elementos de .main-section */
-}
-
-.tech-category ul li:last-child {
-    margin-bottom: 0;
-}
-
-.technologies i {
-    font-size: 2rem;
-    color: var(--text-secondary);
-    transition: all 0.3s ease;
-    position: relative;
-}
-
-.technologies i:hover {
-    color: var(--accent-color);
-    transform: translateY(-5px);
-}
-
-.technologies i[data-tooltip]::after {
-    content: attr(data-tooltip);
-    position: absolute;
-    bottom: -25px;
-    left: 50%;
-    transform: translateX(-50%);
-    background: rgba(0, 0, 0, 0.8);
-    color: white;
-    padding: 5px 10px;
-    border-radius: 5px;
+.tech-item span {
     font-size: 0.8rem;
-    white-space: nowrap;
-    opacity: 0;
-    visibility: hidden;
-    transition: all 0.3s ease;
+    color: var(--text-secondary);
 }
 
-.technologies i:hover::after {
-    opacity: 1;
-    visibility: visible;
+.tech-description {
+    width: 100%;
+    text-align: left;
+    margin: 20px auto 0;
+    padding: 20px;
+    background: rgba(30, 30, 30, 0.7);
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .projects {
@@ -558,30 +462,6 @@ header.minimized .minimize-btn {
     align-items: center;
 }
 
-@media (max-width: 1200px) {
-    .project-cards {
-        overflow-x: auto;
-        justify-content: flex-start;
-        padding-bottom: 20px;
-        -webkit-overflow-scrolling: touch;
-        scrollbar-width: thin;
-    }
-    
-    .project-cards::-webkit-scrollbar {
-        height: 6px;
-    }
-    
-    .project-cards::-webkit-scrollbar-track {
-        background: rgba(255, 255, 255, 0.1);
-        border-radius: 3px;
-    }
-    
-    .project-cards::-webkit-scrollbar-thumb {
-        background: var(--accent-color);
-        border-radius: 3px;
-    }
-}
-
 .project-card h3 {
     font-size: 1.2rem;
     margin-bottom: 10px;
@@ -610,24 +490,49 @@ header.minimized .minimize-btn {
     animation: gradientShift3 10s ease infinite;
 }
 
-@keyframes gradientShift1 {
-    0%, 100% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-}
-
-@keyframes gradientShift2 {
-    0%, 100% { background-position: 100% 50%; }
-    50% { background-position: 0% 50%; }
-}
-
-@keyframes gradientShift3 {
-    0%, 100% { background-position: 50% 0%; }
-    50% { background-position: 50% 100%; }
-}
-
 .project-card:hover {
     transform: translateY(-5px) scale(1.02);
     box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+}
+
+.project-preview {
+    width: 100%;
+    height: 150px;
+    margin: 10px 0;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.project-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.project-tech-stack {
+    display: flex;
+    gap: 6px;
+    margin: 10px 0;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.project-tech-stack {
+    display: flex;
+    gap: 6px;
+    margin: 10px 0;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.tech-tag {
+    background-color: rgba(0, 102, 204, 0.2);
+    color: #e0e0e0;
+    padding: 2px 6px;
+    border-radius: 8px;
+    font-size: 0.7rem;
+    border: 1px solid rgba(0, 102, 204, 0.3);
 }
 
 .project-link {
@@ -650,38 +555,6 @@ header.minimized .minimize-btn {
     background-color: #004085;
     transform: translateY(0);
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-.project-preview {
-    width: 100%;
-    height: 150px; /* Altura reducida */
-    margin: 10px 0;
-    border-radius: 8px;
-    overflow: hidden;
-}
-
-.project-image {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform 0.3s ease;
-}
-
-.project-tech-stack {
-    display: flex;
-    gap: 6px;
-    margin: 10px 0;
-    flex-wrap: wrap;
-    justify-content: center;
-}
-
-.tech-tag {
-    background-color: rgba(0, 102, 204, 0.2);
-    color: #e0e0e0;
-    padding: 2px 6px;
-    border-radius: 8px;
-    font-size: 0.7rem;
-    border: 1px solid rgba(0, 102, 204, 0.3);
 }
 
 .testimonials {
@@ -781,15 +654,6 @@ header.minimized .minimize-btn {
     transform: translateY(0);
 }
 
-body.light {
-    background-color: var(--light-bg);
-    color: var(--light-text-primary);
-}
-
-body.light header {
-    background-color: var(--light-secondary);
-}
-
 .footer {
     background-color: var(--dark-secondary);
     color: var(--text-primary);
@@ -862,4 +726,109 @@ body.light header {
     margin-top: 20px;
     font-size: 0.8rem;
     color: var(--text-secondary);
+}
+
+@keyframes floatAnimation {
+    0%, 100% {
+        transform: translate(0, 0) rotate(0deg);
+    }
+    25% {
+        transform: translate(50px, 50px) rotate(90deg);
+    }
+    50% {
+        transform: translate(0, 100px) rotate(180deg);
+    }
+    75% {
+        transform: translate(-50px, 50px) rotate(270deg);
+    }
+}
+
+@keyframes morphBackground {
+    0%, 100% {
+        border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+    }
+    50% {
+        border-radius: 70% 30% 30% 70% / 70% 70% 30% 30%;
+    }
+}
+
+@keyframes borderRotate {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes gradientShift1 {
+    0%, 100% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+}
+
+@keyframes gradientShift2 {
+    0%, 100% { background-position: 100% 50%; }
+    50% { background-position: 0% 50%; }
+}
+
+@keyframes gradientShift3 {
+    0%, 100% { background-position: 50% 0%; }
+    50% { background-position: 50% 100%; }
+}
+
+@media (max-width: 1200px) {
+    .project-cards {
+        overflow-x: auto;
+        justify-content: flex-start;
+        padding-bottom: 20px;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: thin;
+    }
+    
+    .project-cards::-webkit-scrollbar {
+        height: 6px;
+    }
+    
+    .project-cards::-webkit-scrollbar-track {
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 3px;
+    }
+    
+    .project-cards::-webkit-scrollbar-thumb {
+        background: var(--accent-color);
+        border-radius: 3px;
+    }
+}
+
+@media (max-width: 1024px) {
+    .content-wrapper {
+        flex-direction: column;
+        align-items: center;
+        gap: 40px;
+    }
+
+    .profile-section {
+        position: relative;
+        top: 0;
+        width: 100%;
+        max-width: 300px;
+    }
+
+    .content-section {
+        width: 100%;
+    }
+}
+
+@media (max-width: 768px) {
+    .main-section {
+        padding: 40px 20px;
+    }
+
+    .content-wrapper {
+        padding: 30px 20px;
+    }
+
+    .tech-grid {
+        padding: 10px 0;
+    }
 }
