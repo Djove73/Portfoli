@@ -311,3 +311,75 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // ...existing code...
 });
+
+document.addEventListener("DOMContentLoaded", function () {
+    const form = document.querySelector(".contact-form");
+    const inputs = form.querySelectorAll("input, textarea");
+    
+    // Animación de entrada del formulario
+    anime({
+        targets: ".contact-form input, .contact-form textarea, .contact-form button",
+        opacity: [0, 1],
+        translateY: [20, 0],
+        delay: anime.stagger(150)
+    });
+    
+    // Validación en tiempo real
+    inputs.forEach(input => {
+        input.addEventListener("input", function () {
+            if (this.value.trim() !== "") {
+                this.classList.add("valid");
+            } else {
+                this.classList.remove("valid");
+            }
+        });
+    });
+    
+    // Efecto de confeti al enviar el formulario correctamente
+    form.addEventListener("submit", function (event) {
+        event.preventDefault();
+        
+        if (Array.from(inputs).every(input => input.value.trim() !== "")) {
+            confetti({
+                particleCount: 100,
+                spread: 70,
+                origin: { y: 0.6 }
+            });
+            
+            form.reset();
+            inputs.forEach(input => input.classList.remove("valid"));
+            alert("¡Mensaje enviado con éxito!");
+        } else {
+            alert("Por favor, completa todos los campos.");
+        }
+    });
+
+    // Animación de minimización del header
+    const minimizeBtn = document.querySelector(".minimize-btn");
+    const header = document.querySelector("header");
+    
+    minimizeBtn.addEventListener("click", function () {
+        header.classList.toggle("minimized");
+    });
+
+    // Smooth scrolling para enlaces internos
+    document.querySelectorAll(".footer-link").forEach(anchor => {
+        anchor.addEventListener("click", function (event) {
+            event.preventDefault();
+            const targetId = this.getAttribute("href").substring(1);
+            document.getElementById(targetId).scrollIntoView({
+                behavior: "smooth"
+            });
+        });
+    });
+
+    // Animación para los servicios
+    anime({
+        targets: ".service-item",
+        opacity: [0, 1],
+        translateY: [50, 0],
+        delay: anime.stagger(200),
+        duration: 800,
+        easing: "easeOutExpo"
+    });
+});
