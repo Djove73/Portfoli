@@ -6,7 +6,7 @@
     <title>Mi Portafolio Web</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-    <link rel="stylesheet" href="pagina_principal.css">
+    <link rel="stylesheet" href="../css/pagina_principal.css">
 </head>
 <body>
     <header>
@@ -152,43 +152,47 @@
 
     <section id="proyectos" class="projects">
         <h2>Mis Proyectos.</h2>
-        <div class="project-cards">
-            <div class="project-card">
-                <h3>Proyecto de Gestión de Tareas</h3>
-                <p>Aplicación web para administración de tareas con funcionalidades avanzadas de seguimiento y colaboración.</p>
-                <a href="#" class="project-link footer-link">Ver Proyecto</a>
+        <div class="carousel-container">
+            <button class="carousel-btn prev">&#8592;</button>
+            <div class="carousel-track">
+                <div class="project-card">
+                    <h3>Proyecto de Gestión de Tareas</h3>
+                    <p>Aplicación web para administración de tareas con funcionalidades avanzadas de seguimiento y colaboración.</p>
+                    <a href="#" class="project-link footer-link">Ver Proyecto</a>
+                </div>
+                <div class="project-card">
+                    <h3>Wikipedia League of Legends con API</h3>
+                    <div class="project-preview">
+                        <img src="Imagenes/bash.png" alt="Preview del Login" class="project-image">
+                    </div>
+                    <p>Wikipedia IOS</p>
+                    <div class="project-tech-stack">
+                        <span class="tech-tag">IOS Devices</span>
+                        <span class="tech-tag">Swift</span>
+                        <span class="tech-tag">SwiftUI</span>
+                        <span class="tech-tag">API</span>
+                        <span class="tech-tag">LiveData</span>
+                        <span class="tech-tag">Lists</span>
+                    </div>
+                    <a href="https://github.com/Marcausente/LeagueChampionStats" class="project-link footer-link">Ver Proyecto</a>
+                </div>
+                <div class="project-card">
+                    <h3>Login Responsive y Adaptativo</h3>
+                    <div class="project-preview">
+                        <img src="../Imagenes/bash.png" alt="Preview del Login" class="project-image">
+                    </div>
+                    <p>Sistema de login</p>
+                    <div class="project-tech-stack">
+                        <span class="tech-tag">Kotlin</span>
+                        <span class="tech-tag">AndroidStudio</span>
+                        <span class="tech-tag">LiveData</span>
+                        <span class="tech-tag">Responsive</span>
+                        <span class="tech-tag">Adaptative</span>
+                    </div>
+                    <a href="https://github.com/LSG-DAM2-M07-24-25/pr05-login-responsive-adaptative-Djove73" class="project-link footer-link">Ver Proyecto</a>
+                </div>
             </div>
-            <div class="project-card">
-                <h3>Wikipedia League of Legends con API</h3>
-                <div class="project-preview">
-                    <img src="Imagenes/bash.png" alt="Preview del Login" class="project-image">
-                </div>
-                <p>Wikipedia IOS</p>
-                <div class="project-tech-stack">
-                    <span class="tech-tag">IOS Devices</span>
-                    <span class="tech-tag">Swift</span>
-                    <span class="tech-tag">SwiftUI</span>
-                    <span class="tech-tag">API</span>
-                    <span class="tech-tag">LiveData</span>
-                    <span class="tech-tag">Lists</span>
-                </div>
-                <a href="https://github.com/Marcausente/LeagueChampionStats" class="project-link footer-link">Ver Proyecto</a>
-            </div>
-            <div class="project-card">
-                <h3>Login Responsive y Adaptativo</h3>
-                <div class="project-preview">
-                    <img src="Imagenes/bash.png" alt="Preview del Login" class="project-image">
-                </div>
-                <p>Sistema de login</p>
-                <div class="project-tech-stack">
-                    <span class="tech-tag">Kotlin</span>
-                    <span class="tech-tag">AndroidStudio</span>
-                    <span class="tech-tag">LiveData</span>
-                    <span class="tech-tag">Responsive</span>
-                    <span class="tech-tag">Adaptative</span>
-                </div>
-                <a href="https://github.com/LSG-DAM2-M07-24-25/pr05-login-responsive-adaptative-Djove73" class="project-link footer-link">Ver Proyecto</a>
-            </div>
+            <button class="carousel-btn next">&#8594;</button>
         </div>
     </section>
 
@@ -275,6 +279,6 @@
     </section>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
-    <script src="pagina_principal.js"></script>
+    <script src="../js/pagina_principal.js"></script>
 </body>
 </html>

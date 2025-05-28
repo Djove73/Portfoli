@@ -388,3 +388,49 @@ document.addEventListener("DOMContentLoaded", function () {
         easing: "easeOutExpo"
     });
 });
+
+document.addEventListener('DOMContentLoaded', function () {
+    const track = document.querySelector('.carousel-track');
+    if (!track) return;
+    const cards = Array.from(track.children);
+    const prevBtn = document.querySelector('.carousel-btn.prev');
+    const nextBtn = document.querySelector('.carousel-btn.next');
+    let currentIndex = 0;
+    let autoSlideInterval;
+
+    function updateCarousel() {
+        track.style.transform = `translateX(-${currentIndex * 100}%)`;
+    }
+
+    function goToPrev() {
+        currentIndex = (currentIndex - 1 + cards.length) % cards.length;
+        updateCarousel();
+    }
+
+    function goToNext() {
+        currentIndex = (currentIndex + 1) % cards.length;
+        updateCarousel();
+    }
+
+    prevBtn.addEventListener('click', () => {
+        goToPrev();
+        resetAutoSlide();
+    });
+
+    nextBtn.addEventListener('click', () => {
+        goToNext();
+        resetAutoSlide();
+    });
+
+    function startAutoSlide() {
+        autoSlideInterval = setInterval(goToNext, 4000);
+    }
+
+    function resetAutoSlide() {
+        clearInterval(autoSlideInterval);
+        startAutoSlide();
+    }
+
+    updateCarousel();
+    startAutoSlide();
+});
