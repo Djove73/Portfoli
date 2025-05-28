@@ -148,6 +148,35 @@ document.addEventListener('DOMContentLoaded', () => {
     };
     
     createParticles();
+
+    // Vórtice central
+    const bg = document.querySelector('.background-animation');
+    if (bg && !document.querySelector('.background-vortex')) {
+        const vortex = document.createElement('div');
+        vortex.className = 'background-vortex';
+        bg.appendChild(vortex);
+    }
+    // Partículas en órbita
+    if (bg) {
+        const numParticles = 18;
+        const centerX = bg.offsetWidth / 2;
+        const centerY = bg.offsetHeight / 2;
+        const radius = Math.min(centerX, centerY) * 0.7;
+        for (let i = 0; i < numParticles; i++) {
+            const p = document.createElement('div');
+            p.className = 'bg-particle';
+            const size = Math.random() * 80 + 40;
+            const angle = (2 * Math.PI * i) / numParticles;
+            const x = centerX + Math.cos(angle) * radius - size / 2;
+            const y = centerY + Math.sin(angle) * radius - size / 2;
+            p.style.width = `${size}px`;
+            p.style.height = `${size}px`;
+            p.style.left = `${x}px`;
+            p.style.top = `${y}px`;
+            p.style.animationDelay = `${Math.random() * 12}s`;
+            bg.appendChild(p);
+        }
+    }
 });
 
 // Añadir estilos para las animaciones
