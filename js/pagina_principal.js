@@ -105,10 +105,12 @@ document.addEventListener('DOMContentLoaded', () => {
 document.addEventListener('DOMContentLoaded', () => {
     const textElement = document.getElementById("typewriter-text");
     const phrases = [
-        "Apasionado por el desarrollo web.",
-        "Innovador en cada proyecto.",
-        "Buscando siempre la perfección.",
-        "Mejorando cada día."
+        "Passionate about web development.",
+        "Innovative in every project.",
+        "Always striving for perfection.",
+        "Full Stack Developer from Barcelona.",
+        "Turning ideas into reality.",
+        "Open to new opportunities."
     ];
     let currentPhraseIndex = 0;
     let charIndex = 0;
@@ -348,9 +350,9 @@ document.addEventListener("DOMContentLoaded", function () {
             
             form.reset();
             inputs.forEach(input => input.classList.remove("valid"));
-            alert("¡Mensaje enviado con éxito!");
+            alert("Message sent successfully!");
         } else {
-            alert("Por favor, completa todos los campos.");
+            alert("Please complete all fields.");
         }
     });
 

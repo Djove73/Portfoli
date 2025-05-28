@@ -11,160 +11,78 @@
 <body>
     <header>
         <div class="logo">
-            <h1>Mi Portafolio.</h1>
+            <h1>My Portfolio.</h1>
         </div>
         <div class="main-menu-wrapper">
-            <button class="minimize-btn" aria-label="Minimizar Header">
+            <button class="minimize-btn" aria-label="Minimize Header">
                 <i class="fa fa-chevron-up"></i> 
             </button>
             <nav class="main-menu">
                 <ul>
-                    <li><a href="#proyectos" class="footer-link">Proyectos</a></li>
-                    <li><a href="#servicios" class="footer-link">Servicios</a></li>
-                    <li><a href="#testimonios" class="footer-link">Testimonios</a></li>
-                    <li><a href="#contacto" class="footer-link">Contacto</a></li>
+                    <li><a href="#proyectos" class="footer-link">Projects</a></li>
+                    <li><a href="#servicios" class="footer-link">Services</a></li>
+                    <li><a href="#business-edge" class="footer-link">Business Edge</a></li>
+                    <li><a href="#contacto" class="footer-link">Contact</a></li>
                 </ul>
             </nav>
         </div>
     </header>  
 
-    <section class="main-section">
-        <div class="background-shapes">
-            <div class="shape shape-1"></div>
-            <div class="shape shape-2"></div>
-            <div class="shape shape-3"></div>
-        </div>
-        
-        <div class="content-wrapper">
-            <div class="profile-section">
-                <div class="profile-image-container">
-                    <div class="profile-background"></div>
-                    <img src="Imagenes/imagen_avatar.jpeg" alt="Imagen principal" class="profile-image">
-                    <div class="profile-border"></div>
+    <section class="main-section enhanced-hero">
+        <div class="hero-container">
+            <div class="hero-card">
+                <div class="hero-image-wrapper">
+                    <img src="../Imagenes/imagen_avatar.jpeg" alt="Roger Jové Tusell" class="hero-image">
                 </div>
-                <div class="profile-social">
-                    <a href="https://github.com/Djove73" class="social-link github">
-                        <i class="fab fa-github"></i>
-                    </a>
-                    <a href="https://www.linkedin.com/in/roger-jové-tusell-10163a2b7/" class="social-link linkedin">
-                        <i class="fab fa-linkedin"></i>
-                    </a>
-                    <a href="https://www.instagram.com/rogeer_jove/" class="social-link instagram">
-                        <i class="fab fa-instagram"></i>
-                    </a>
+                <div class="hero-status">
+                    <span class="status-dot"></span> Available for work
                 </div>
+                <div class="hero-name">Roger Jové Tusell</div>
+                <div class="hero-typewriter"><span id="typewriter-text"></span></div>
+                <div class="hero-title">Full Stack Developer</div>
+                <div class="hero-socials">
+                    <a href="https://github.com/Djove73" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                    <a href="https://www.linkedin.com/in/roger-jové-tusell-10163a2b7/" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                    <a href="https://www.instagram.com/rogeer_jove/" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                </div>
+                <a href="#contacto" class="hero-contact-btn">Contact Me</a>
             </div>
-    
-            <div class="content-section">
-                <div class="main-heading">
-                    <h1>Bienvenido a mi <span class="highlight-text">Portfolio</span><span class="highlight-text2">.</span></h1>
-                    <div id="typewriter-text" class="typewriter"></div>
-                </div>
-                
-                <div class="bio sobre-mi">
-                    <h3>Sobre Mí<span class="accent-dot">.</span></h3>
-                    <p>Desarrollador web con experiencia en múltiples tecnologías. Me especializo en crear soluciones digitales innovadoras y eficientes, combinando frontend y backend con pasión por el diseño y la funcionalidad.</p>
-                </div>
-
-                <div class="technologies-section">
-                    <h3 class="tech-title">Tecnologías<span class="accent-dot">.</span></h3>
-                    
-                    <div class="tech-container">
-                        <div class="tech-grid">
-                            <div class="tech-category">
-                                <h4>Frontend</h4>
-                                <div class="tech-items">
-                                    <div class="tech-item" data-tooltip="HTML5">
-                                        <i class="fab fa-html5"></i>
-                                        <span>HTML5</span>
-                                    </div>
-                                    <div class="tech-item" data-tooltip="CSS3">
-                                        <i class="fab fa-css3-alt"></i>
-                                        <span>CSS3</span>
-                                    </div>
-                                    <div class="tech-item" data-tooltip="JavaScript">
-                                        <i class="fab fa-js"></i>
-                                        <span>JavaScript</span>
-                                    </div>
-                                </div>
-                            </div>
-                            
-                            <div class="tech-category">
-                                <h4>Backend</h4>
-                                <div class="tech-items">
-                                    <div class="tech-item" data-tooltip="PHP">
-                                        <i class="fab fa-php"></i>
-                                        <span>PHP</span>
-                                    </div>
-                                    <div class="tech-item" data-tooltip="Python">
-                                        <i class="fab fa-python"></i>
-                                        <span>Python</span>
-                                    </div>
-                                    <div class="tech-item" data-tooltip="Java">
-                                        <i class="fab fa-java"></i>
-                                        <span>Java</span>
-                                    </div>
-                                </div>
-                            </div>
-                            
-                            <div class="tech-category">
-                                <h4>Mobile</h4>
-                                <div class="tech-items">
-                                    <div class="tech-item" data-tooltip="Swift">
-                                        <i class="fab fa-swift"></i>
-                                        <span>Swift</span>
-                                    </div>
-                                    <div class="tech-item" data-tooltip="Kotlin">
-                                        <i class="fab fa-android"></i>
-                                        <span>Kotlin</span>
-                                    </div>
-                                </div>
-                            </div>
-                            
-                            <div class="tech-category">
-                                <h4>Herramientas</h4>
-                                <div class="tech-items">
-                                    <div class="tech-item" data-tooltip="Linux">
-                                        <i class="fab fa-linux"></i>
-                                        <span>Linux</span>
-                                    </div>
-                                    <div class="tech-item" data-tooltip="Base de datos">
-                                        <i class="fas fa-database"></i>
-                                        <span>SQL</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="tech-description-container">
-                            <p class="tech-description">
-                                Mi stack tecnológico refleja mi pasión por el desarrollo integral de software. Desde el frontend hasta el backend, 
-                                mobile y herramientas de desarrollo, cada tecnología ha sido cuidadosamente seleccionada y dominada para crear 
-                                soluciones robustas y escalables. Me mantengo constantemente actualizado con las últimas tendencias y mejores 
-                                prácticas del sector para ofrecer resultados excepcionales.
-                            </p>
-                        </div>
-                    </div>
+            <div class="hero-info">
+                <div class="hero-typewriter hero-typewriter-large"><span id="typewriter-text"></span></div>
+                <p class="hero-description">
+                    Hi, I'm Roger, a passionate Full Stack Developer based in Barcelona. I love building robust, scalable, and beautiful digital solutions. I thrive on learning new technologies, collaborating with teams, and turning ideas into reality. Let's create something amazing together!
+                </p>
+                <div class="hero-skills">
+                    <span class="hero-skill"><i class="fab fa-html5"></i> HTML5</span>
+                    <span class="hero-skill"><i class="fab fa-css3-alt"></i> CSS3</span>
+                    <span class="hero-skill"><i class="fab fa-js"></i> JavaScript</span>
+                    <span class="hero-skill"><i class="fab fa-react"></i> React</span>
+                    <span class="hero-skill"><i class="fab fa-node-js"></i> Node.js</span>
+                    <span class="hero-skill"><i class="fab fa-python"></i> Python</span>
+                    <span class="hero-skill"><i class="fas fa-database"></i> SQL</span>
+                    <span class="hero-skill"><i class="fab fa-android"></i> Kotlin</span>
+                    <span class="hero-skill"><i class="fab fa-swift"></i> Swift</span>
+                    <span class="hero-skill"><i class="fab fa-linux"></i> Linux</span>
                 </div>
             </div>
         </div>
     </section>
 
     <section id="proyectos" class="projects">
-        <h2>Mis Proyectos.</h2>
+        <h2>My Projects.</h2>
         <div class="carousel-container">
             <div class="carousel-track">
                 <div class="project-card">
-                    <h3>Proyecto de Gestión de Tareas</h3>
-                    <p>Aplicación web para administración de tareas con funcionalidades avanzadas de seguimiento y colaboración.</p>
-                    <a href="#" class="project-link footer-link">Ver Proyecto</a>
+                    <h3>Task Management Project</h3>
+                    <p>Web application for task management with advanced tracking and collaboration features.</p>
+                    <a href="#" class="project-link footer-link">View Project</a>
                 </div>
                 <div class="project-card">
-                    <h3>Wikipedia League of Legends con API</h3>
+                    <h3>Wikipedia League of Legends with API</h3>
                     <div class="project-preview">
                         <img src="../Imagenes/bash.png" alt="Preview del Login" class="project-image">
                     </div>
-                    <p>Wikipedia IOS</p>
+                    <p>Wikipedia iOS</p>
                     <div class="project-tech-stack">
                         <span class="tech-tag">IOS Devices</span>
                         <span class="tech-tag">Swift</span>
@@ -173,14 +91,14 @@
                         <span class="tech-tag">LiveData</span>
                         <span class="tech-tag">Lists</span>
                     </div>
-                    <a href="https://github.com/Marcausente/LeagueChampionStats" class="project-link footer-link">Ver Proyecto</a>
+                    <a href="https://github.com/Marcausente/LeagueChampionStats" class="project-link footer-link">View Project</a>
                 </div>
                 <div class="project-card">
-                    <h3>Login Responsive y Adaptativo</h3>
+                    <h3>Responsive and Adaptive Login</h3>
                     <div class="project-preview">
                         <img src="../Imagenes/bash.png" alt="Preview del Login" class="project-image">
                     </div>
-                    <p>Sistema de login</p>
+                    <p>Login system</p>
                     <div class="project-tech-stack">
                         <span class="tech-tag">Kotlin</span>
                         <span class="tech-tag">AndroidStudio</span>
@@ -188,7 +106,7 @@
                         <span class="tech-tag">Responsive</span>
                         <span class="tech-tag">Adaptative</span>
                     </div>
-                    <a href="https://github.com/LSG-DAM2-M07-24-25/pr05-login-responsive-adaptative-Djove73" class="project-link footer-link">Ver Proyecto</a>
+                    <a href="https://github.com/LSG-DAM2-M07-24-25/pr05-login-responsive-adaptative-Djove73" class="project-link footer-link">View Project</a>
                 </div>
             </div>
         </div>
@@ -244,57 +162,57 @@
     </section>
 
     <section id="servicios" class="services">
-        <h2>Servicios.</h2>
+        <h2>Services.</h2>
         <div class="service-item">
-            <h3>Desarrollo Web</h3>
-            <p>Creación de sitios web responsivos y modernos utilizando las últimas tecnologías.</p>
+            <h3>Web Development</h3>
+            <p>Creation of responsive and modern websites using the latest technologies.</p>
         </div>
         <div class="service-item">
-            <h3>Diseño UX/UI</h3>
-            <p>Diseño de interfaces intuitivas y atractivas que mejoran la experiencia del usuario.</p>
+            <h3>UX/UI Design</h3>
+            <p>Design of intuitive and attractive interfaces that enhance user experience.</p>
         </div>
         <div class="service-item">
-            <h3>Consultoría Técnica</h3>
-            <p>Asesoramiento en estrategias de desarrollo y soluciones tecnológicas innovadoras.</p>
+            <h3>Technical Consulting</h3>
+            <p>Advice on development strategies and innovative technological solutions.</p>
         </div>
     </section>
 
     <section class="contact">
-        <h2>Contacto.</h2>
+        <h2>Contact.</h2>
         <form class="contact-form" action="#" method="POST">
-            <input type="text" name="nombre" placeholder="Tu Nombre" required>
-            <input type="email" name="correo" placeholder="Tu Correo Electrónico" required>
-            <textarea name="mensaje" placeholder="Tu Mensaje" required></textarea>
-            <button type="submit" class="footer-link">Enviar Mensaje</button>
+            <input type="text" name="nombre" placeholder="Your Name" required>
+            <input type="email" name="correo" placeholder="Your Email" required>
+            <textarea name="mensaje" placeholder="Your Message" required></textarea>
+            <button type="submit" class="footer-link">Send Message</button>
         </form>
     </section>    
 
     <section class="footer">
         <div class="footer-content">
             <div class="footer-section about">
-                <h3>Escuelas y Universidades.</h3>
+                <h3>Schools and Universities.</h3>
                 <ul>
                     <li>Lestonnac</li>
                     <li>La Salle de Gracia</li>
                     <li>La Salle Bonanova</li>
                 </ul>
-                <h3>Currículum</h3>
+                <h3>Curriculum</h3>
                 <ul>
-                    <li><a href="/Portfolio/Imagenes/Cv_JovéTusell_Roger.pdf" target="_blank" class="footer-link">Currículum en Catalán</a></li>
-                    <li><a href="/Portfolio/Imagenes/Cv_JovéTusell_Roger (English).pdf" target="_blank" class="footer-link">Currículum en Inglés</a></li>
+                    <li><a href="/Portfolio/Imagenes/Cv_JovéTusell_Roger.pdf" target="_blank" class="footer-link">Curriculum in Catalan</a></li>
+                    <li><a href="/Portfolio/Imagenes/Cv_JovéTusell_Roger (English).pdf" target="_blank" class="footer-link">Curriculum in English</a></li>
                 </ul>
             </div>
             <div class="footer-section links">
-                <h3>Enlaces Rápidos.</h3>
+                <h3>Quick Links.</h3>
                 <ul>
-                    <li><a href="#proyectos" class="footer-link">Proyectos</a></li>
-                    <li><a href="#servicios" class="footer-link">Servicios</a></li>
-                    <li><a href="#testimonios" class="footer-link">Testimonios</a></li>
-                    <li><a href="#contacto" class="footer-link">Contacto</a></li>
+                    <li><a href="#proyectos" class="footer-link">Projects</a></li>
+                    <li><a href="#servicios" class="footer-link">Services</a></li>
+                    <li><a href="#business-edge" class="footer-link">Business Edge</a></li>
+                    <li><a href="#contacto" class="footer-link">Contact</a></li>
                 </ul>
             </div>
             <div class="footer-section social">
-                <h3>Redes Sociales.</h3>
+                <h3>Social Networks.</h3>
                 <div class="social-icons">
                     <a href="https://www.linkedin.com/in/roger-jové-tusell-10163a2b7/" aria-label="LinkedIn" class="footer-link"><i class="fab fa-linkedin"></i></a>
                     <a href="https://github.com/Djove73" aria-label="GitHub" class="footer-link"><i class="fab fa-github"></i></a>
@@ -303,7 +221,7 @@
             </div>
         </div>
         <div class="footer-bottom">
-            <p>&copy; 2025 Mi Portafolio. Todos los derechos reservados.</p>
+            <p>&copy; 2025 My Portfolio. All rights reserved.</p>
         </div>
     </section>
 
