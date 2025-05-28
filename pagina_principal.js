@@ -365,11 +365,16 @@ document.addEventListener("DOMContentLoaded", function () {
     // Smooth scrolling para enlaces internos
     document.querySelectorAll(".footer-link").forEach(anchor => {
         anchor.addEventListener("click", function (event) {
-            event.preventDefault();
-            const targetId = this.getAttribute("href").substring(1);
-            document.getElementById(targetId).scrollIntoView({
-                behavior: "smooth"
-            });
+            const href = this.getAttribute("href");
+            // Solo prevenir el comportamiento si es un enlace interno
+            if (href && href.startsWith("#")) {
+                event.preventDefault();
+                const targetId = href.substring(1);
+                document.getElementById(targetId).scrollIntoView({
+                    behavior: "smooth"
+                });
+            }
+            // Si no empieza por #, deja que el enlace funcione normalmente
         });
     });
 
