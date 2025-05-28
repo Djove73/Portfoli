@@ -1,0 +1,221 @@
+/* Estilos generales */
+:root {
+    --primary-color: #2c3e50;
+    --secondary-color: #3498db;
+    --accent-color: #e74c3c;
+    --text-color: #333;
+    --light-bg: #f8f9fa;
+    --dark-bg: #2c3e50;
+    --gradient-primary: linear-gradient(135deg, #2c3e50, #3498db);
+    --gradient-accent: linear-gradient(135deg, #e74c3c, #f39c12);
+    --gradient-rainbow: linear-gradient(45deg, #ff6b6b, #4ecdc4, #45b7d1, #96c93d);
+    --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    --transition: all 0.3s ease;
+}
+
+/* Títulos */
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    position: relative;
+    padding-bottom: 0.5rem;
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    animation: titleFadeIn 0.8s ease-out;
+    transition: all 0.3s ease;
+}
+
+h1 {
+    font-size: 3.5rem;
+    letter-spacing: -1px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+    animation: titleFloat 3s ease-in-out infinite;
+}
+
+h2 {
+    font-size: 2.5rem;
+    letter-spacing: -0.5px;
+    animation: titlePulse 2s ease-in-out infinite;
+}
+
+h3 {
+    font-size: 2rem;
+    letter-spacing: -0.25px;
+    animation: titleShine 2.5s ease-in-out infinite;
+}
+
+h4 {
+    font-size: 1.5rem;
+}
+
+h5 {
+    font-size: 1.25rem;
+}
+
+h6 {
+    font-size: 1rem;
+}
+
+/* Animaciones para títulos */
+@keyframes titleFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes titleFloat {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+@keyframes titlePulse {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+}
+
+@keyframes titleShine {
+    0% {
+        background-position: -200% center;
+    }
+    100% {
+        background-position: 200% center;
+    }
+}
+
+/* Efectos de hover para títulos */
+h1:hover, h2:hover, h3:hover {
+    transform: translateY(-2px) scale(1.02);
+    transition: var(--transition);
+    background: var(--gradient-rainbow);
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    background-clip: text;
+    animation: titleShine 2s linear infinite;
+}
+
+/* Efecto de subrayado para títulos */
+h1::after, h2::after, h3::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 3px;
+    background: var(--gradient-accent);
+    transition: width 0.3s ease;
+    animation: borderShine 2s linear infinite;
+}
+
+@keyframes borderShine {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+h1:hover::after, h2:hover::after, h3:hover::after {
+    width: 100%;
+    background: var(--gradient-rainbow);
+    background-size: 200% auto;
+}
+
+/* Títulos en secciones específicas */
+.hero h1 {
+    font-size: 4rem;
+    margin-bottom: 1rem;
+    background: var(--gradient-rainbow);
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    animation: titleShine 3s linear infinite;
+}
+
+.hero h2 {
+    font-size: 2rem;
+    color: var(--text-color);
+    margin-bottom: 2rem;
+    opacity: 0.9;
+    animation: titlePulse 2s ease-in-out infinite;
+}
+
+.section-title {
+    text-align: center;
+    margin-bottom: 3rem;
+    position: relative;
+    animation: titleFloat 3s ease-in-out infinite;
+}
+
+.section-title::before {
+    content: '';
+    position: absolute;
+    top: -20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 4px;
+    background: var(--gradient-rainbow);
+    background-size: 200% auto;
+    border-radius: 2px;
+    animation: borderShine 2s linear infinite;
+}
+
+/* Títulos en tarjetas */
+.card-title {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: var(--primary-color);
+    transition: var(--transition);
+    animation: titleFadeIn 0.8s ease-out;
+}
+
+.card:hover .card-title {
+    color: var(--secondary-color);
+    transform: translateY(-2px) scale(1.05);
+    background: var(--gradient-rainbow);
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    background-clip: text;
+    animation: titleShine 2s linear infinite;
+}
+
+/* Clase para títulos con efecto de máquina de escribir */
+.typewriter {
+    overflow: hidden;
+    border-right: 2px solid var(--accent-color);
+    white-space: nowrap;
+    margin: 0 auto;
+    animation: typing 3.5s steps(40, end),
+               blink-caret 0.75s step-end infinite;
+}
+
+@keyframes typing {
+    from { width: 0 }
+    to { width: 100% }
+}
+
+@keyframes blink-caret {
+    from, to { border-color: transparent }
+    50% { border-color: var(--accent-color) }
+} 
