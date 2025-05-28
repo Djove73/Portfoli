@@ -393,44 +393,73 @@ document.addEventListener('DOMContentLoaded', function () {
     const track = document.querySelector('.carousel-track');
     if (!track) return;
     const cards = Array.from(track.children);
-    const prevBtn = document.querySelector('.carousel-btn.prev');
-    const nextBtn = document.querySelector('.carousel-btn.next');
     let currentIndex = 0;
     let autoSlideInterval;
+    let startX = 0;
+    let currentTranslate = 0;
+    let isDragging = false;
 
     function updateCarousel() {
         track.style.transform = `translateX(-${currentIndex * 100}%)`;
     }
 
-    function goToPrev() {
-        currentIndex = (currentIndex - 1 + cards.length) % cards.length;
-        updateCarousel();
-    }
-
     function goToNext() {
-        currentIndex = (currentIndex + 1) % cards.length;
+        if (currentIndex < cards.length - 1) {
+            currentIndex++;
+        } else {
+            currentIndex = 0;
+        }
         updateCarousel();
     }
-
-    prevBtn.addEventListener('click', () => {
-        goToPrev();
-        resetAutoSlide();
-    });
-
-    nextBtn.addEventListener('click', () => {
-        goToNext();
-        resetAutoSlide();
-    });
 
     function startAutoSlide() {
         autoSlideInterval = setInterval(goToNext, 4000);
     }
 
-    function resetAutoSlide() {
+    // --- Drag/Swipe support SOLO AVANZA DERECHA ---
+    function onDragStart(e) {
+        isDragging = true;
+        startX = e.type.includes('touch') ? e.touches[0].clientX : e.clientX;
+        currentTranslate = -currentIndex * track.offsetWidth;
+        track.style.transition = 'none';
         clearInterval(autoSlideInterval);
+    }
+
+    function onDragMove(e) {
+        if (!isDragging) return;
+        const x = e.type.includes('touch') ? e.touches[0].clientX : e.clientX;
+        const delta = x - startX;
+        // Solo permitir arrastrar hacia la izquierda (siguiente)
+        if (delta < 0 && cards.length > 1) {
+            track.style.transform = `translateX(${currentTranslate + delta}px)`;
+        }
+    }
+
+    function onDragEnd(e) {
+        if (!isDragging) return;
+        isDragging = false;
+        const x = e.type.includes('touch') ? (e.changedTouches[0]?.clientX ?? 0) : e.clientX;
+        const delta = x - startX;
+        track.style.transition = 'transform 0.5s';
+        if (delta < -50 && cards.length > 1) {
+            goToNext();
+        } else {
+            updateCarousel();
+        }
         startAutoSlide();
     }
+
+    // Mouse events
+    track.addEventListener('mousedown', onDragStart);
+    track.addEventListener('mousemove', onDragMove);
+    track.addEventListener('mouseup', onDragEnd);
+    track.addEventListener('mouseleave', onDragEnd);
+    // Touch events
+    track.addEventListener('touchstart', onDragStart);
+    track.addEventListener('touchmove', onDragMove);
+    track.addEventListener('touchend', onDragEnd);
 
     updateCarousel();
     startAutoSlide();
 });
+
